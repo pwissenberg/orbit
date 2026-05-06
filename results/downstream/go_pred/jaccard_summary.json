@@ -1,0 +1,21 @@
+{
+  "method": "jaccard",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.3526878798351499,
+      "auprc": 0.5168944764592754,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.12611115315430693,
+      "auprc": 0.08162309815793237,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.726476809712596,
+      "auprc": 0.5694649772935876,
+      "n_terms": 6
+    }
+  }
+}

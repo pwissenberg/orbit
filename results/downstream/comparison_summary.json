@@ -1,0 +1,42 @@
+{
+  "proc_improved_t5": {
+    "method": "proc_improved_t5",
+    "subloc_deeploc_cv": {
+      "f1_micro": 0.6543369633460387,
+      "f1_macro": 0.4246909118063639,
+      "accuracy": 0.4976743072274227,
+      "n_proteins": 4490,
+      "annotation_source": "DeepLoc 2.0 (Swiss-Prot experimental, ECO:0000269)"
+    },
+    "subloc_loso": {
+      "f1_micro": 0.8543315969061419,
+      "f1_macro": 0.7341418237674183,
+      "accuracy": 0.7752052860605341
+    },
+    "subloc_cv": {
+      "f1_micro": 0.859577975947006,
+      "f1_macro": 0.7383231683863618,
+      "accuracy": 0.7827210763919624
+    }
+  },
+  "proc_full_t5": {
+    "method": "proc_full_t5",
+    "subloc_deeploc_cv": {
+      "f1_micro": 0.6530450995137324,
+      "f1_macro": 0.4201158312759018,
+      "accuracy": 0.495787062881324,
+      "n_proteins": 4490,
+      "annotation_source": "DeepLoc 2.0 (Swiss-Prot experimental, ECO:0000269)"
+    },
+    "subloc_loso": {
+      "f1_micro": 0.8533932996991357,
+      "f1_macro": 0.7330565198610658,
+      "accuracy": 0.7714414207793158
+    },
+    "subloc_cv": {
+      "f1_micro": 0.8582926667565944,
+      "f1_macro": 0.7375144621801064,
+      "accuracy": 0.7806497300168186
+    }
+  }
+}

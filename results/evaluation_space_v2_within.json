@@ -1,0 +1,1532 @@
+[
+  {
+    "species": "ABROB",
+    "precision_at_k": 0.14425687320475994,
+    "recall_at_k": 0.15215742925182366,
+    "n_eval": 24370,
+    "n_genes": 24370,
+    "shuffle_precision_mean": 0.0019615921214608126,
+    "shuffle_recall_mean": 0.0020801618982658316,
+    "k": 50
+  },
+  {
+    "species": "ACOCA",
+    "precision_at_k": 0.5134139602773289,
+    "recall_at_k": 0.5238838058689425,
+    "n_eval": 19183,
+    "n_genes": 19183,
+    "shuffle_precision_mean": 0.003463066256581348,
+    "shuffle_recall_mean": 0.003479258464353668,
+    "k": 50
+  },
+  {
+    "species": "ACTCH",
+    "precision_at_k": 0.588644934774055,
+    "recall_at_k": 0.588644934774055,
+    "n_eval": 33039,
+    "n_genes": 33039,
+    "shuffle_precision_mean": 0.00221628983928085,
+    "shuffle_recall_mean": 0.00221628983928085,
+    "k": 50
+  },
+  {
+    "species": "ACTDI",
+    "precision_at_k": 0.09354465111343553,
+    "recall_at_k": 0.10132450448462779,
+    "n_eval": 65967,
+    "n_genes": 65967,
+    "shuffle_precision_mean": 0.0006887686267376113,
+    "shuffle_recall_mean": 0.0007367290481205561,
+    "k": 50
+  },
+  {
+    "species": "ADILA",
+    "precision_at_k": 0.6362683607273706,
+    "recall_at_k": 0.6890855263502897,
+    "n_eval": 29751,
+    "n_genes": 29751,
+    "shuffle_precision_mean": 0.0017749991596921113,
+    "shuffle_recall_mean": 0.001893074517793902,
+    "k": 50
+  },
+  {
+    "species": "AEGTA",
+    "precision_at_k": 0.5373645215918713,
+    "recall_at_k": 0.540522695690411,
+    "n_eval": 37792,
+    "n_genes": 37792,
+    "shuffle_precision_mean": 0.0023144580863674854,
+    "shuffle_recall_mean": 0.00232353967858769,
+    "k": 50
+  },
+  {
+    "species": "ALSLA",
+    "precision_at_k": 0.6494704940035503,
+    "recall_at_k": 0.7018284630272392,
+    "n_eval": 46194,
+    "n_genes": 46194,
+    "shuffle_precision_mean": 0.001230895787331688,
+    "shuffle_recall_mean": 0.0013130507104333559,
+    "k": 50
+  },
+  {
+    "species": "AMBOP",
+    "precision_at_k": 0.6632679494944789,
+    "recall_at_k": 0.7187002738266933,
+    "n_eval": 42926,
+    "n_genes": 42926,
+    "shuffle_precision_mean": 0.0011996459022503843,
+    "shuffle_recall_mean": 0.0012919991876201979,
+    "k": 50
+  },
+  {
+    "species": "AMBTR",
+    "precision_at_k": 0.6082623367342888,
+    "recall_at_k": 0.6132875645165349,
+    "n_eval": 25189,
+    "n_genes": 25189,
+    "shuffle_precision_mean": 0.0030513319306046294,
+    "shuffle_recall_mean": 0.0030632904032698153,
+    "k": 50
+  },
+  {
+    "species": "ANACO",
+    "precision_at_k": 0.6460978240654639,
+    "recall_at_k": 0.6460978240654639,
+    "n_eval": 26885,
+    "n_genes": 26885,
+    "shuffle_precision_mean": 0.0026224288636786308,
+    "shuffle_recall_mean": 0.0026224288636786308,
+    "k": 50
+  },
+  {
+    "species": "ANGEV",
+    "precision_at_k": 0.6883329300750061,
+    "recall_at_k": 0.7596306499307985,
+    "n_eval": 37197,
+    "n_genes": 37197,
+    "shuffle_precision_mean": 0.0013250530956797593,
+    "shuffle_recall_mean": 0.001437350914297217,
+    "k": 50
+  },
+  {
+    "species": "ARAAL",
+    "precision_at_k": 0.6350660667771726,
+    "recall_at_k": 0.638213022309228,
+    "n_eval": 21115,
+    "n_genes": 21115,
+    "shuffle_precision_mean": 0.00367056594837793,
+    "shuffle_recall_mean": 0.0036786241147078055,
+    "k": 50
+  },
+  {
+    "species": "ARAHA",
+    "precision_at_k": 0.5574131736526946,
+    "recall_at_k": 0.5574131736526946,
+    "n_eval": 28390,
+    "n_genes": 28390,
+    "shuffle_precision_mean": 0.002471574498062698,
+    "shuffle_recall_mean": 0.002471574498062698,
+    "k": 50
+  },
+  {
+    "species": "ARALY",
+    "precision_at_k": 0.6119804543395249,
+    "recall_at_k": 0.613080135426833,
+    "n_eval": 30902,
+    "n_genes": 30902,
+    "shuffle_precision_mean": 0.0024108471943563524,
+    "shuffle_recall_mean": 0.0024178136985167505,
+    "k": 50
+  },
+  {
+    "species": "ARATH",
+    "precision_at_k": 0.5662795933188091,
+    "recall_at_k": 0.5663335148874364,
+    "n_eval": 27540,
+    "n_genes": 27540,
+    "shuffle_precision_mean": 0.002786637618010167,
+    "shuffle_recall_mean": 0.002786637618010167,
+    "k": 50
+  },
+  {
+    "species": "ASPOF",
+    "precision_at_k": 0.5845194607936207,
+    "recall_at_k": 0.5852444292725304,
+    "n_eval": 26335,
+    "n_genes": 26335,
+    "shuffle_precision_mean": 0.003110689196886273,
+    "shuffle_recall_mean": 0.003113802242551345,
+    "k": 50
+  },
+  {
+    "species": "BETVU",
+    "precision_at_k": 0.619165890027959,
+    "recall_at_k": 0.6192087604846225,
+    "n_eval": 21460,
+    "n_genes": 21460,
+    "shuffle_precision_mean": 0.003785274930102516,
+    "shuffle_recall_mean": 0.003785274930102516,
+    "k": 50
+  },
+  {
+    "species": "BRADI",
+    "precision_at_k": 0.5326342110949898,
+    "recall_at_k": 0.5326342110949898,
+    "n_eval": 32393,
+    "n_genes": 32393,
+    "shuffle_precision_mean": 0.002659957398203316,
+    "shuffle_recall_mean": 0.002659957398203316,
+    "k": 50
+  },
+  {
+    "species": "BRAJU",
+    "precision_at_k": 0.4409299029347373,
+    "recall_at_k": 0.4409299029347373,
+    "n_eval": 79019,
+    "n_genes": 79019,
+    "shuffle_precision_mean": 0.0010329161340943318,
+    "shuffle_recall_mean": 0.0010329161340943318,
+    "k": 50
+  },
+  {
+    "species": "BRANA",
+    "precision_at_k": 0.45627186326970687,
+    "recall_at_k": 0.45627186326970687,
+    "n_eval": 100168,
+    "n_genes": 100168,
+    "shuffle_precision_mean": 0.0008556025876527435,
+    "shuffle_recall_mean": 0.0008556025876527435,
+    "k": 50
+  },
+  {
+    "species": "BRAOL",
+    "precision_at_k": 0.6073693172143708,
+    "recall_at_k": 0.6073693172143708,
+    "n_eval": 35238,
+    "n_genes": 35238,
+    "shuffle_precision_mean": 0.0020765083148873375,
+    "shuffle_recall_mean": 0.0020765083148873375,
+    "k": 50
+  },
+  {
+    "species": "BRARA",
+    "precision_at_k": 0.5573184826632421,
+    "recall_at_k": 0.5573184826632421,
+    "n_eval": 40492,
+    "n_genes": 40492,
+    "shuffle_precision_mean": 0.0019184036352859826,
+    "shuffle_recall_mean": 0.0019184036352859826,
+    "k": 50
+  },
+  {
+    "species": "BUXMI",
+    "precision_at_k": 0.38860637924991237,
+    "recall_at_k": 0.39183925601067054,
+    "n_eval": 28530,
+    "n_genes": 28530,
+    "shuffle_precision_mean": 0.0023200841219768666,
+    "shuffle_recall_mean": 0.002345666579008127,
+    "k": 50
+  },
+  {
+    "species": "BUXSI",
+    "precision_at_k": 0.14123499005964216,
+    "recall_at_k": 0.14242404006026432,
+    "n_eval": 25150,
+    "n_genes": 25150,
+    "shuffle_precision_mean": 0.002674194831013917,
+    "shuffle_recall_mean": 0.0026846432237072693,
+    "k": 50
+  },
+  {
+    "species": "CAJCA",
+    "precision_at_k": 0.5464111066896582,
+    "recall_at_k": 0.5465772632920018,
+    "n_eval": 45234,
+    "n_genes": 45234,
+    "shuffle_precision_mean": 0.0018418888446743603,
+    "shuffle_recall_mean": 0.0018418888446743603,
+    "k": 50
+  },
+  {
+    "species": "CAMSA",
+    "precision_at_k": 0.5047060288988541,
+    "recall_at_k": 0.5047453501489376,
+    "n_eval": 88308,
+    "n_genes": 88308,
+    "shuffle_precision_mean": 0.0008652443719708294,
+    "shuffle_recall_mean": 0.0008652443719708294,
+    "k": 50
+  },
+  {
+    "species": "CAPAN",
+    "precision_at_k": 0.5756058468310853,
+    "recall_at_k": 0.5756058468310853,
+    "n_eval": 35438,
+    "n_genes": 35438,
+    "shuffle_precision_mean": 0.0021703256391444213,
+    "shuffle_recall_mean": 0.0021703256391444213,
+    "k": 50
+  },
+  {
+    "species": "CAPRU",
+    "precision_at_k": 0.6808311876699908,
+    "recall_at_k": 0.6814076027501063,
+    "n_eval": 27575,
+    "n_genes": 27575,
+    "shuffle_precision_mean": 0.0026445693563009976,
+    "shuffle_recall_mean": 0.002644837938801994,
+    "k": 50
+  },
+  {
+    "species": "CARPA",
+    "precision_at_k": 0.6216492467918914,
+    "recall_at_k": 0.621728101171657,
+    "n_eval": 26885,
+    "n_genes": 26885,
+    "shuffle_precision_mean": 0.0029302585084619677,
+    "shuffle_recall_mean": 0.0029302585084619677,
+    "k": 50
+  },
+  {
+    "species": "CELOR",
+    "precision_at_k": 0.12260767259128537,
+    "recall_at_k": 0.12276900380332581,
+    "n_eval": 23799,
+    "n_genes": 23799,
+    "shuffle_precision_mean": 0.0029438211689566786,
+    "shuffle_recall_mean": 0.002952768240925581,
+    "k": 50
+  },
+  {
+    "species": "CENAM",
+    "precision_at_k": 0.5874221876090985,
+    "recall_at_k": 0.5874221876090985,
+    "n_eval": 37237,
+    "n_genes": 37237,
+    "shuffle_precision_mean": 0.0019911378467653137,
+    "shuffle_recall_mean": 0.0019911378467653137,
+    "k": 50
+  },
+  {
+    "species": "CHEQU",
+    "precision_at_k": 0.5027056558147867,
+    "recall_at_k": 0.5027056558147867,
+    "n_eval": 44662,
+    "n_genes": 44662,
+    "shuffle_precision_mean": 0.0018741659576373651,
+    "shuffle_recall_mean": 0.0018741659576373651,
+    "k": 50
+  },
+  {
+    "species": "CIBBA",
+    "precision_at_k": 0.6334645154904482,
+    "recall_at_k": 0.7044250748856188,
+    "n_eval": 50515,
+    "n_genes": 50515,
+    "shuffle_precision_mean": 0.0008919330891814311,
+    "shuffle_recall_mean": 0.0009765090228865149,
+    "k": 50
+  },
+  {
+    "species": "CICAR",
+    "precision_at_k": 0.5901443224761562,
+    "recall_at_k": 0.5901443224761562,
+    "n_eval": 27785,
+    "n_genes": 27785,
+    "shuffle_precision_mean": 0.0027961849919021058,
+    "shuffle_recall_mean": 0.0027961849919021058,
+    "k": 50
+  },
+  {
+    "species": "CITCL",
+    "precision_at_k": 0.6817713594056513,
+    "recall_at_k": 0.6821498522433318,
+    "n_eval": 23959,
+    "n_genes": 23959,
+    "shuffle_precision_mean": 0.0028012855294461373,
+    "shuffle_recall_mean": 0.002801304079654595,
+    "k": 50
+  },
+  {
+    "species": "CITLA",
+    "precision_at_k": 0.606135107195829,
+    "recall_at_k": 0.6062841775660329,
+    "n_eval": 22249,
+    "n_genes": 22249,
+    "shuffle_precision_mean": 0.003506135107195829,
+    "shuffle_recall_mean": 0.003506135107195829,
+    "k": 50
+  },
+  {
+    "species": "CITMA",
+    "precision_at_k": 0.639938241954299,
+    "recall_at_k": 0.639938241954299,
+    "n_eval": 29146,
+    "n_genes": 29146,
+    "shuffle_precision_mean": 0.0024508337336169627,
+    "shuffle_recall_mean": 0.0024508337336169627,
+    "k": 50
+  },
+  {
+    "species": "CITSI",
+    "precision_at_k": 0.6094961686584349,
+    "recall_at_k": 0.6095528557501003,
+    "n_eval": 25187,
+    "n_genes": 25187,
+    "shuffle_precision_mean": 0.003236749116607774,
+    "shuffle_recall_mean": 0.003240560606662167,
+    "k": 50
+  },
+  {
+    "species": "COFCA",
+    "precision_at_k": 0.6417330210772834,
+    "recall_at_k": 0.6422415034930615,
+    "n_eval": 25193,
+    "n_genes": 25193,
+    "shuffle_precision_mean": 0.002833009169213671,
+    "shuffle_recall_mean": 0.0028330157848079495,
+    "k": 50
+  },
+  {
+    "species": "CORCA",
+    "precision_at_k": 0.6668817478534387,
+    "recall_at_k": 0.6719364073985648,
+    "n_eval": 23526,
+    "n_genes": 23526,
+    "shuffle_precision_mean": 0.0032195868400918134,
+    "shuffle_recall_mean": 0.003228534637213181,
+    "k": 50
+  },
+  {
+    "species": "CUCME",
+    "precision_at_k": 0.6043945243945245,
+    "recall_at_k": 0.6043945243945245,
+    "n_eval": 28490,
+    "n_genes": 28490,
+    "shuffle_precision_mean": 0.0025542997542997545,
+    "shuffle_recall_mean": 0.0025542997542997545,
+    "k": 50
+  },
+  {
+    "species": "CUCSA",
+    "precision_at_k": 0.5960785228014548,
+    "recall_at_k": 0.5961242189685723,
+    "n_eval": 21446,
+    "n_genes": 21446,
+    "shuffle_precision_mean": 0.0035262519817215337,
+    "shuffle_recall_mean": 0.0035262519817215337,
+    "k": 50
+  },
+  {
+    "species": "CYCBI",
+    "precision_at_k": 0.7818863014313278,
+    "recall_at_k": 0.7977807137194389,
+    "n_eval": 22287,
+    "n_genes": 22287,
+    "shuffle_precision_mean": 0.002437115807421367,
+    "shuffle_recall_mean": 0.0024827923702834182,
+    "k": 50
+  },
+  {
+    "species": "CYCED",
+    "precision_at_k": 0.6928726949566762,
+    "recall_at_k": 0.6980914495355547,
+    "n_eval": 31507,
+    "n_genes": 31507,
+    "shuffle_precision_mean": 0.0018562224267623072,
+    "shuffle_recall_mean": 0.001863374076085042,
+    "k": 50
+  },
+  {
+    "species": "CYRRE",
+    "precision_at_k": 0.7140137055604103,
+    "recall_at_k": 0.7259148755834497,
+    "n_eval": 43486,
+    "n_genes": 43486,
+    "shuffle_precision_mean": 0.0013464563307731224,
+    "shuffle_recall_mean": 0.0013648530739146605,
+    "k": 50
+  },
+  {
+    "species": "DAUCA",
+    "precision_at_k": 0.5878968882956536,
+    "recall_at_k": 0.5878968882956536,
+    "n_eval": 35961,
+    "n_genes": 35961,
+    "shuffle_precision_mean": 0.0021721309196073525,
+    "shuffle_recall_mean": 0.0021721309196073525,
+    "k": 50
+  },
+  {
+    "species": "DAVDE",
+    "precision_at_k": 0.683688140941362,
+    "recall_at_k": 0.7495281118699045,
+    "n_eval": 38030,
+    "n_genes": 38030,
+    "shuffle_precision_mean": 0.0012753089666053116,
+    "shuffle_recall_mean": 0.0013858583030801842,
+    "k": 50
+  },
+  {
+    "species": "DICCU",
+    "precision_at_k": 0.602687328472819,
+    "recall_at_k": 0.6539329472585919,
+    "n_eval": 36073,
+    "n_genes": 36073,
+    "shuffle_precision_mean": 0.0014023785102431183,
+    "shuffle_recall_mean": 0.0015047974471797676,
+    "k": 50
+  },
+  {
+    "species": "DIOVI",
+    "precision_at_k": 0.6333148679897339,
+    "recall_at_k": 0.6549659984506047,
+    "n_eval": 39353,
+    "n_genes": 39353,
+    "shuffle_precision_mean": 0.001410210149162707,
+    "shuffle_recall_mean": 0.0014558045015930546,
+    "k": 50
+  },
+  {
+    "species": "DIPPR",
+    "precision_at_k": 0.7531606643644136,
+    "recall_at_k": 0.815648949095085,
+    "n_eval": 36486,
+    "n_genes": 36486,
+    "shuffle_precision_mean": 0.0013778435564326043,
+    "shuffle_recall_mean": 0.0014705674041915501,
+    "k": 50
+  },
+  {
+    "species": "ELAGU",
+    "precision_at_k": 0.5903442963875838,
+    "recall_at_k": 0.5904318723840071,
+    "n_eval": 25966,
+    "n_genes": 25966,
+    "shuffle_precision_mean": 0.003049372256027112,
+    "shuffle_recall_mean": 0.0030494226106262227,
+    "k": 50
+  },
+  {
+    "species": "EPIPI",
+    "precision_at_k": 0.5835214045400055,
+    "recall_at_k": 0.6103519486600011,
+    "n_eval": 51718,
+    "n_genes": 51718,
+    "shuffle_precision_mean": 0.0010513167562550755,
+    "shuffle_recall_mean": 0.0010924894785307334,
+    "k": 50
+  },
+  {
+    "species": "EQUHY",
+    "precision_at_k": 0.7206117343844755,
+    "recall_at_k": 0.7603918784883771,
+    "n_eval": 26384,
+    "n_genes": 26384,
+    "shuffle_precision_mean": 0.0020817161916312915,
+    "shuffle_recall_mean": 0.002171831739838304,
+    "k": 50
+  },
+  {
+    "species": "ERATE",
+    "precision_at_k": 0.6550848374563517,
+    "recall_at_k": 0.6567662708131982,
+    "n_eval": 40666,
+    "n_genes": 40666,
+    "shuffle_precision_mean": 0.0018455712388727684,
+    "shuffle_recall_mean": 0.0018463923739295695,
+    "k": 50
+  },
+  {
+    "species": "ERYGU",
+    "precision_at_k": 0.6156102432413153,
+    "recall_at_k": 0.6158433792234349,
+    "n_eval": 28038,
+    "n_genes": 28038,
+    "shuffle_precision_mean": 0.002708467080390898,
+    "shuffle_recall_mean": 0.002708467080390898,
+    "k": 50
+  },
+  {
+    "species": "EUCGR",
+    "precision_at_k": 0.5596044382801666,
+    "recall_at_k": 0.5596044382801666,
+    "n_eval": 36050,
+    "n_genes": 36050,
+    "shuffle_precision_mean": 0.002239334257975035,
+    "shuffle_recall_mean": 0.002239334257975035,
+    "k": 50
+  },
+  {
+    "species": "FRAEX",
+    "precision_at_k": 0.6006525132688105,
+    "recall_at_k": 0.6007927897457245,
+    "n_eval": 38436,
+    "n_genes": 38436,
+    "shuffle_precision_mean": 0.0019936517847850975,
+    "shuffle_recall_mean": 0.0019936517847850975,
+    "k": 50
+  },
+  {
+    "species": "FRAVE",
+    "precision_at_k": 0.5365110738551135,
+    "recall_at_k": 0.5365110738551135,
+    "n_eval": 33999,
+    "n_genes": 33999,
+    "shuffle_precision_mean": 0.0023246566075472807,
+    "shuffle_recall_mean": 0.0023246566075472807,
+    "k": 50
+  },
+  {
+    "species": "GINBI",
+    "precision_at_k": 0.5323978234877875,
+    "recall_at_k": 0.5323978234877875,
+    "n_eval": 40983,
+    "n_genes": 40983,
+    "shuffle_precision_mean": 0.0019388526950198863,
+    "shuffle_recall_mean": 0.0019388526950198863,
+    "k": 50
+  },
+  {
+    "species": "GLOSU",
+    "precision_at_k": 0.1292140462065662,
+    "recall_at_k": 0.1317657760805166,
+    "n_eval": 27139,
+    "n_genes": 27139,
+    "shuffle_precision_mean": 0.0020416374958546744,
+    "shuffle_recall_mean": 0.0020757493005144805,
+    "k": 50
+  },
+  {
+    "species": "GLYMA",
+    "precision_at_k": 0.5650622132197924,
+    "recall_at_k": 0.5650622132197924,
+    "n_eval": 48382,
+    "n_genes": 48382,
+    "shuffle_precision_mean": 0.0016592121036749206,
+    "shuffle_recall_mean": 0.0016592121036749206,
+    "k": 50
+  },
+  {
+    "species": "GNEGN",
+    "precision_at_k": 0.6802869309959895,
+    "recall_at_k": 0.6878662001873846,
+    "n_eval": 24187,
+    "n_genes": 24187,
+    "shuffle_precision_mean": 0.0024996899160706167,
+    "shuffle_recall_mean": 0.002519361238055317,
+    "k": 50
+  },
+  {
+    "species": "GOSAR",
+    "precision_at_k": 0.5522056394702863,
+    "recall_at_k": 0.5523604534850426,
+    "n_eval": 33301,
+    "n_genes": 33301,
+    "shuffle_precision_mean": 0.002317528002162097,
+    "shuffle_recall_mean": 0.002317849398513209,
+    "k": 50
+  },
+  {
+    "species": "GOSBA",
+    "precision_at_k": 0.4764377009754911,
+    "recall_at_k": 0.47673711579759825,
+    "n_eval": 74014,
+    "n_genes": 74014,
+    "shuffle_precision_mean": 0.0011308130894155158,
+    "shuffle_recall_mean": 0.001131181745538489,
+    "k": 50
+  },
+  {
+    "species": "GOSHI",
+    "precision_at_k": 0.4741723655374542,
+    "recall_at_k": 0.4741723655374542,
+    "n_eval": 75746,
+    "n_genes": 75746,
+    "shuffle_precision_mean": 0.0010628680062313525,
+    "shuffle_recall_mean": 0.0010628680062313525,
+    "k": 50
+  },
+  {
+    "species": "GOSRA",
+    "precision_at_k": 0.6577191558441559,
+    "recall_at_k": 0.6598587451970952,
+    "n_eval": 36960,
+    "n_genes": 36960,
+    "shuffle_precision_mean": 0.0019228354978354976,
+    "shuffle_recall_mean": 0.0019262594340503328,
+    "k": 50
+  },
+  {
+    "species": "GUAOF",
+    "precision_at_k": 0.19548523985239852,
+    "recall_at_k": 0.1977211678730138,
+    "n_eval": 21680,
+    "n_genes": 21680,
+    "shuffle_precision_mean": 0.0032797047970479706,
+    "shuffle_recall_mean": 0.003286993660749027,
+    "k": 50
+  },
+  {
+    "species": "HACVI",
+    "precision_at_k": 0.7558653587228313,
+    "recall_at_k": 0.7602544327717952,
+    "n_eval": 25995,
+    "n_genes": 25995,
+    "shuffle_precision_mean": 0.002606039623004424,
+    "shuffle_recall_mean": 0.0026153266531553864,
+    "k": 50
+  },
+  {
+    "species": "HALUN",
+    "precision_at_k": 0.5572664997401615,
+    "recall_at_k": 0.5815490359728492,
+    "n_eval": 21167,
+    "n_genes": 21167,
+    "shuffle_precision_mean": 0.0030451173997259884,
+    "shuffle_recall_mean": 0.0031346897733191513,
+    "k": 50
+  },
+  {
+    "species": "HELAN",
+    "precision_at_k": 0.5424689366441973,
+    "recall_at_k": 0.5424689366441973,
+    "n_eval": 52071,
+    "n_genes": 52071,
+    "shuffle_precision_mean": 0.001493191987862726,
+    "shuffle_recall_mean": 0.001493191987862726,
+    "k": 50
+  },
+  {
+    "species": "HEVBR",
+    "precision_at_k": 0.5185151270778596,
+    "recall_at_k": 0.5186089646618769,
+    "n_eval": 38441,
+    "n_genes": 38441,
+    "shuffle_precision_mean": 0.0022180484378658202,
+    "shuffle_recall_mean": 0.002218984937956869,
+    "k": 50
+  },
+  {
+    "species": "HORVU",
+    "precision_at_k": 0.5521836894507217,
+    "recall_at_k": 0.5521836894507217,
+    "n_eval": 35756,
+    "n_genes": 35756,
+    "shuffle_precision_mean": 0.0022832531603087596,
+    "shuffle_recall_mean": 0.0022832531603087596,
+    "k": 50
+  },
+  {
+    "species": "HYDVE",
+    "precision_at_k": 0.13063730666501025,
+    "recall_at_k": 0.1310323891247687,
+    "n_eval": 64396,
+    "n_genes": 64396,
+    "shuffle_precision_mean": 0.0011668426610348468,
+    "shuffle_recall_mean": 0.001167791256531612,
+    "k": 50
+  },
+  {
+    "species": "ILEVE",
+    "precision_at_k": 0.7683620877920945,
+    "recall_at_k": 0.7764357520358073,
+    "n_eval": 27474,
+    "n_genes": 27474,
+    "shuffle_precision_mean": 0.001956904709907549,
+    "shuffle_recall_mean": 0.001965511161318793,
+    "k": 50
+  },
+  {
+    "species": "JATCU",
+    "precision_at_k": 0.574493971119888,
+    "recall_at_k": 0.5748203002636253,
+    "n_eval": 47853,
+    "n_genes": 47853,
+    "shuffle_precision_mean": 0.0017058073683990556,
+    "shuffle_recall_mean": 0.0017058201389904728,
+    "k": 50
+  },
+  {
+    "species": "LACSA",
+    "precision_at_k": 0.5599346663505362,
+    "recall_at_k": 0.5599346663505362,
+    "n_eval": 37959,
+    "n_genes": 37959,
+    "shuffle_precision_mean": 0.002255802313021945,
+    "shuffle_recall_mean": 0.002255802313021945,
+    "k": 50
+  },
+  {
+    "species": "LINBE",
+    "precision_at_k": 0.7806904270574657,
+    "recall_at_k": 0.7861916872961743,
+    "n_eval": 28591,
+    "n_genes": 28591,
+    "shuffle_precision_mean": 0.0020059459270399776,
+    "shuffle_recall_mean": 0.0020174524468798945,
+    "k": 50
+  },
+  {
+    "species": "LINEN",
+    "precision_at_k": 0.5801443614518377,
+    "recall_at_k": 0.6242618166734443,
+    "n_eval": 43779,
+    "n_genes": 43779,
+    "shuffle_precision_mean": 0.0012956897142465565,
+    "shuffle_recall_mean": 0.0013720840862079676,
+    "k": 50
+  },
+  {
+    "species": "LYGFL",
+    "precision_at_k": 0.6826872602463153,
+    "recall_at_k": 0.7460667123761552,
+    "n_eval": 29718,
+    "n_genes": 29718,
+    "shuffle_precision_mean": 0.001735379231442224,
+    "shuffle_recall_mean": 0.0018807624956438643,
+    "k": 50
+  },
+  {
+    "species": "MALDO",
+    "precision_at_k": 0.49407171917031634,
+    "recall_at_k": 0.4940870912228615,
+    "n_eval": 44981,
+    "n_genes": 44981,
+    "shuffle_precision_mean": 0.001810897934683533,
+    "shuffle_recall_mean": 0.0018109174551206174,
+    "k": 50
+  },
+  {
+    "species": "MANES",
+    "precision_at_k": 0.5525630419462573,
+    "recall_at_k": 0.5525630419462573,
+    "n_eval": 32637,
+    "n_genes": 32637,
+    "shuffle_precision_mean": 0.0026072249287618352,
+    "shuffle_recall_mean": 0.0026072249287618352,
+    "k": 50
+  },
+  {
+    "species": "MARPO",
+    "precision_at_k": 0.5948513310731952,
+    "recall_at_k": 0.5948513310731952,
+    "n_eval": 17993,
+    "n_genes": 17993,
+    "shuffle_precision_mean": 0.004157839159673206,
+    "shuffle_recall_mean": 0.004157839159673206,
+    "k": 50
+  },
+  {
+    "species": "MEDTR",
+    "precision_at_k": 0.5050018122508155,
+    "recall_at_k": 0.5050018122508155,
+    "n_eval": 49662,
+    "n_genes": 49662,
+    "shuffle_precision_mean": 0.001745318352059925,
+    "shuffle_recall_mean": 0.001745318352059925,
+    "k": 50
+  },
+  {
+    "species": "MICSP",
+    "precision_at_k": 0.7161624484991171,
+    "recall_at_k": 0.7844058619781129,
+    "n_eval": 39077,
+    "n_genes": 39077,
+    "shuffle_precision_mean": 0.0012146275302607674,
+    "shuffle_recall_mean": 0.0013207364298862866,
+    "k": 50
+  },
+  {
+    "species": "MUSAC",
+    "precision_at_k": 0.5497594088331328,
+    "recall_at_k": 0.549821847969296,
+    "n_eval": 34914,
+    "n_genes": 34914,
+    "shuffle_precision_mean": 0.002328005957495561,
+    "shuffle_recall_mean": 0.002328005957495561,
+    "k": 50
+  },
+  {
+    "species": "NELNU",
+    "precision_at_k": 0.5103091885614749,
+    "recall_at_k": 0.5114152205737497,
+    "n_eval": 41334,
+    "n_genes": 41334,
+    "shuffle_precision_mean": 0.002029225335075241,
+    "shuffle_recall_mean": 0.0020320329443246537,
+    "k": 50
+  },
+  {
+    "species": "NEPBI",
+    "precision_at_k": 0.63533421996068,
+    "recall_at_k": 0.684256431853835,
+    "n_eval": 34588,
+    "n_genes": 34588,
+    "shuffle_precision_mean": 0.001477159708569446,
+    "shuffle_recall_mean": 0.0015788735204502445,
+    "k": 50
+  },
+  {
+    "species": "NICAT",
+    "precision_at_k": 0.6288586856476652,
+    "recall_at_k": 0.6289045207682717,
+    "n_eval": 32594,
+    "n_genes": 32594,
+    "shuffle_precision_mean": 0.0022577161440755964,
+    "shuffle_recall_mean": 0.0022577161440755964,
+    "k": 50
+  },
+  {
+    "species": "NICBE",
+    "precision_at_k": 0.5133772404877537,
+    "recall_at_k": 0.5133772404877537,
+    "n_eval": 57242,
+    "n_genes": 57242,
+    "shuffle_precision_mean": 0.001413158170574054,
+    "shuffle_recall_mean": 0.001413158170574054,
+    "k": 50
+  },
+  {
+    "species": "NICTA",
+    "precision_at_k": 0.48146848777004114,
+    "recall_at_k": 0.48148449256510323,
+    "n_eval": 67212,
+    "n_genes": 67212,
+    "shuffle_precision_mean": 0.0014292685829911324,
+    "shuffle_recall_mean": 0.0014292685829911324,
+    "k": 50
+  },
+  {
+    "species": "NUPAD",
+    "precision_at_k": 0.7262736578782791,
+    "recall_at_k": 0.73946035915752,
+    "n_eval": 30381,
+    "n_genes": 30381,
+    "shuffle_precision_mean": 0.001789407853592706,
+    "shuffle_recall_mean": 0.0018102379975881496,
+    "k": 50
+  },
+  {
+    "species": "OLEEU",
+    "precision_at_k": 0.5466025641025641,
+    "recall_at_k": 0.5466025641025641,
+    "n_eval": 50544,
+    "n_genes": 50544,
+    "shuffle_precision_mean": 0.001525561886672998,
+    "shuffle_recall_mean": 0.001525561886672998,
+    "k": 50
+  },
+  {
+    "species": "OPHRE",
+    "precision_at_k": 0.45978788769267764,
+    "recall_at_k": 0.4776559092904348,
+    "n_eval": 37433,
+    "n_genes": 37433,
+    "shuffle_precision_mean": 0.0017968103010712476,
+    "shuffle_recall_mean": 0.0018449616318640823,
+    "k": 50
+  },
+  {
+    "species": "ORYRU",
+    "precision_at_k": 0.5911001330039901,
+    "recall_at_k": 0.5911001330039901,
+    "n_eval": 36841,
+    "n_genes": 36841,
+    "shuffle_precision_mean": 0.0020015743329442745,
+    "shuffle_recall_mean": 0.0020015743329442745,
+    "k": 50
+  },
+  {
+    "species": "ORYSA",
+    "precision_at_k": 0.5594731226139946,
+    "recall_at_k": 0.5594731226139946,
+    "n_eval": 42173,
+    "n_genes": 42173,
+    "shuffle_precision_mean": 0.0018787375809166998,
+    "shuffle_recall_mean": 0.0018787375809166998,
+    "k": 50
+  },
+  {
+    "species": "PALCE",
+    "precision_at_k": 0.3690115917650931,
+    "recall_at_k": 0.3779100030910042,
+    "n_eval": 27347,
+    "n_genes": 27347,
+    "shuffle_precision_mean": 0.00271927450908692,
+    "shuffle_recall_mean": 0.0027437628218599185,
+    "k": 50
+  },
+  {
+    "species": "PANHA",
+    "precision_at_k": 0.6135811111440691,
+    "recall_at_k": 0.6143963260690715,
+    "n_eval": 33713,
+    "n_genes": 33713,
+    "shuffle_precision_mean": 0.0023830569809865634,
+    "shuffle_recall_mean": 0.0023876908676837487,
+    "k": 50
+  },
+  {
+    "species": "PHAVU",
+    "precision_at_k": 0.6047561731772257,
+    "recall_at_k": 0.6047561731772257,
+    "n_eval": 27417,
+    "n_genes": 27417,
+    "shuffle_precision_mean": 0.002521938942991574,
+    "shuffle_recall_mean": 0.002521938942991574,
+    "k": 50
+  },
+  {
+    "species": "PHLPH",
+    "precision_at_k": 0.16234448718879296,
+    "recall_at_k": 0.16813088969585657,
+    "n_eval": 41331,
+    "n_genes": 41331,
+    "shuffle_precision_mean": 0.0014632116329147615,
+    "shuffle_recall_mean": 0.0014971717442720785,
+    "k": 50
+  },
+  {
+    "species": "PHYBR",
+    "precision_at_k": 0.7266292315097063,
+    "recall_at_k": 0.7325657264984903,
+    "n_eval": 24932,
+    "n_genes": 24932,
+    "shuffle_precision_mean": 0.00243590566340446,
+    "shuffle_recall_mean": 0.002447346317866657,
+    "k": 50
+  },
+  {
+    "species": "PHYED",
+    "precision_at_k": 0.46820085682973,
+    "recall_at_k": 0.4683985882070097,
+    "n_eval": 50185,
+    "n_genes": 50185,
+    "shuffle_precision_mean": 0.001885025405997808,
+    "shuffle_recall_mean": 0.0018854307350543616,
+    "k": 50
+  },
+  {
+    "species": "PHYPA",
+    "precision_at_k": 0.5598379915548789,
+    "recall_at_k": 0.5598379915548789,
+    "n_eval": 34813,
+    "n_genes": 34813,
+    "shuffle_precision_mean": 0.002318099560509005,
+    "shuffle_recall_mean": 0.002318099560509005,
+    "k": 50
+  },
+  {
+    "species": "PICAB",
+    "precision_at_k": 0.44088875818409773,
+    "recall_at_k": 0.44091227638737984,
+    "n_eval": 64607,
+    "n_genes": 64607,
+    "shuffle_precision_mean": 0.0013578714380794651,
+    "shuffle_recall_mean": 0.0013578714380794651,
+    "k": 50
+  },
+  {
+    "species": "PIPSA",
+    "precision_at_k": 0.7586631730374024,
+    "recall_at_k": 0.7677832819625297,
+    "n_eval": 38928,
+    "n_genes": 38928,
+    "shuffle_precision_mean": 0.0015627825729551993,
+    "shuffle_recall_mean": 0.001576732112190444,
+    "k": 50
+  },
+  {
+    "species": "PISSA",
+    "precision_at_k": 0.4826889962200756,
+    "recall_at_k": 0.4845684293682929,
+    "n_eval": 38096,
+    "n_genes": 38096,
+    "shuffle_precision_mean": 0.00226994960100798,
+    "shuffle_recall_mean": 0.0022755690009552704,
+    "k": 50
+  },
+  {
+    "species": "PLEIR",
+    "precision_at_k": 0.3018876457986194,
+    "recall_at_k": 0.3214470044106006,
+    "n_eval": 33608,
+    "n_genes": 33608,
+    "shuffle_precision_mean": 0.0020302308974053797,
+    "shuffle_recall_mean": 0.002099113146235004,
+    "k": 50
+  },
+  {
+    "species": "PLEVA",
+    "precision_at_k": 0.3171784002556183,
+    "recall_at_k": 0.3292847000228481,
+    "n_eval": 46945,
+    "n_genes": 46945,
+    "shuffle_precision_mean": 0.0014910214080306743,
+    "shuffle_recall_mean": 0.0015316386415153021,
+    "k": 50
+  },
+  {
+    "species": "PODNE",
+    "precision_at_k": 0.7857998262913197,
+    "recall_at_k": 0.7939631824934206,
+    "n_eval": 19573,
+    "n_genes": 19573,
+    "shuffle_precision_mean": 0.0034813263168650696,
+    "shuffle_recall_mean": 0.0034875443110691643,
+    "k": 50
+  },
+  {
+    "species": "POLXX",
+    "precision_at_k": 0.13038086913086916,
+    "recall_at_k": 0.1312108867655028,
+    "n_eval": 32032,
+    "n_genes": 32032,
+    "shuffle_precision_mean": 0.002260864135864136,
+    "shuffle_recall_mean": 0.0022769614110429324,
+    "k": 50
+  },
+  {
+    "species": "POPTR",
+    "precision_at_k": 0.575269245190505,
+    "recall_at_k": 0.575269245190505,
+    "n_eval": 34671,
+    "n_genes": 34671,
+    "shuffle_precision_mean": 0.0023308240316114335,
+    "shuffle_recall_mean": 0.0023308240316114335,
+    "k": 50
+  },
+  {
+    "species": "PRUAV",
+    "precision_at_k": 0.584430609856314,
+    "recall_at_k": 0.584433350798795,
+    "n_eval": 40157,
+    "n_genes": 40157,
+    "shuffle_precision_mean": 0.0019266379460617076,
+    "shuffle_recall_mean": 0.0019266379460617076,
+    "k": 50
+  },
+  {
+    "species": "PRUPE",
+    "precision_at_k": 0.5700424865831842,
+    "recall_at_k": 0.5700564003180282,
+    "n_eval": 26832,
+    "n_genes": 26832,
+    "shuffle_precision_mean": 0.0029780858676207514,
+    "shuffle_recall_mean": 0.0029780858676207514,
+    "k": 50
+  },
+  {
+    "species": "PSEME",
+    "precision_at_k": 0.45482301881384735,
+    "recall_at_k": 0.4553903400631485,
+    "n_eval": 48847,
+    "n_genes": 48847,
+    "shuffle_precision_mean": 0.0023153110733514855,
+    "shuffle_recall_mean": 0.002315761459250312,
+    "k": 50
+  },
+  {
+    "species": "PSINU",
+    "precision_at_k": 0.16277878855114267,
+    "recall_at_k": 0.1763695642515322,
+    "n_eval": 22535,
+    "n_genes": 22535,
+    "shuffle_precision_mean": 0.0021103172842245397,
+    "shuffle_recall_mean": 0.0022608739140687895,
+    "k": 50
+  },
+  {
+    "species": "PYRPI",
+    "precision_at_k": 0.43516871235110277,
+    "recall_at_k": 0.4749649376968705,
+    "n_eval": 44158,
+    "n_genes": 44158,
+    "shuffle_precision_mean": 0.0013472530458807012,
+    "shuffle_recall_mean": 0.001446227238596914,
+    "k": 50
+  },
+  {
+    "species": "RAPSA",
+    "precision_at_k": 0.4389777835859906,
+    "recall_at_k": 0.43902569653294954,
+    "n_eval": 76520,
+    "n_genes": 76520,
+    "shuffle_precision_mean": 0.0013224777835859904,
+    "shuffle_recall_mean": 0.0013224777835859904,
+    "k": 50
+  },
+  {
+    "species": "RICCO",
+    "precision_at_k": 0.5957178275354459,
+    "recall_at_k": 0.5977613434208708,
+    "n_eval": 25814,
+    "n_genes": 25814,
+    "shuffle_precision_mean": 0.0032934066785465245,
+    "shuffle_recall_mean": 0.003301555298862961,
+    "k": 50
+  },
+  {
+    "species": "ROSCH",
+    "precision_at_k": 0.5056328311040884,
+    "recall_at_k": 0.5058498045375335,
+    "n_eval": 44933,
+    "n_genes": 44933,
+    "shuffle_precision_mean": 0.0019688870095475484,
+    "shuffle_recall_mean": 0.001968892459839298,
+    "k": 50
+  },
+  {
+    "species": "SACSP",
+    "precision_at_k": 0.5105740146654446,
+    "recall_at_k": 0.511033193808777,
+    "n_eval": 52368,
+    "n_genes": 52368,
+    "shuffle_precision_mean": 0.0018483043079743355,
+    "shuffle_recall_mean": 0.0018485460817890564,
+    "k": 50
+  },
+  {
+    "species": "SALMO",
+    "precision_at_k": 0.053017661148106236,
+    "recall_at_k": 0.05617038772474814,
+    "n_eval": 37993,
+    "n_genes": 37993,
+    "shuffle_precision_mean": 0.0012499144579264602,
+    "shuffle_recall_mean": 0.0012984535866239796,
+    "k": 50
+  },
+  {
+    "species": "SELER",
+    "precision_at_k": 0.28947124076512737,
+    "recall_at_k": 0.2956669890118614,
+    "n_eval": 44803,
+    "n_genes": 44803,
+    "shuffle_precision_mean": 0.001497846126375466,
+    "shuffle_recall_mean": 0.0015248465043395819,
+    "k": 50
+  },
+  {
+    "species": "SELMO",
+    "precision_at_k": 0.6902519986909158,
+    "recall_at_k": 0.6940696367519628,
+    "n_eval": 21389,
+    "n_genes": 21389,
+    "shuffle_precision_mean": 0.0031231006592173545,
+    "shuffle_recall_mean": 0.003128795393752268,
+    "k": 50
+  },
+  {
+    "species": "SELWI",
+    "precision_at_k": 0.4424926389804439,
+    "recall_at_k": 0.45526443850002396,
+    "n_eval": 22755,
+    "n_genes": 22755,
+    "shuffle_precision_mean": 0.0032258404746209625,
+    "shuffle_recall_mean": 0.0032850428582640893,
+    "k": 50
+  },
+  {
+    "species": "SESIN",
+    "precision_at_k": 0.6410490693739425,
+    "recall_at_k": 0.6410490693739425,
+    "n_eval": 24822,
+    "n_genes": 24822,
+    "shuffle_precision_mean": 0.0030800096688421564,
+    "shuffle_recall_mean": 0.0030800096688421564,
+    "k": 50
+  },
+  {
+    "species": "SETIT",
+    "precision_at_k": 0.611950598715798,
+    "recall_at_k": 0.611950598715798,
+    "n_eval": 34574,
+    "n_genes": 34574,
+    "shuffle_precision_mean": 0.002269913808063863,
+    "shuffle_recall_mean": 0.002269913808063863,
+    "k": 50
+  },
+  {
+    "species": "SETVI",
+    "precision_at_k": 0.5853370050710279,
+    "recall_at_k": 0.5854187332736559,
+    "n_eval": 29777,
+    "n_genes": 29777,
+    "shuffle_precision_mean": 0.002673069818987809,
+    "shuffle_recall_mean": 0.002673069818987809,
+    "k": 50
+  },
+  {
+    "species": "SMIHI",
+    "precision_at_k": 0.6748575924468921,
+    "recall_at_k": 0.6911430454485034,
+    "n_eval": 25420,
+    "n_genes": 25420,
+    "shuffle_precision_mean": 0.002324154209284028,
+    "shuffle_recall_mean": 0.0023631925778744996,
+    "k": 50
+  },
+  {
+    "species": "SOLLY",
+    "precision_at_k": 0.6152435372654599,
+    "recall_at_k": 0.6152435372654599,
+    "n_eval": 36401,
+    "n_genes": 36401,
+    "shuffle_precision_mean": 0.002136095162220818,
+    "shuffle_recall_mean": 0.002136095162220818,
+    "k": 50
+  },
+  {
+    "species": "SOLME",
+    "precision_at_k": 0.5853787901463677,
+    "recall_at_k": 0.587006395280054,
+    "n_eval": 33409,
+    "n_genes": 33409,
+    "shuffle_precision_mean": 0.002164087521326589,
+    "shuffle_recall_mean": 0.002168816129870793,
+    "k": 50
+  },
+  {
+    "species": "SOLPE",
+    "precision_at_k": 0.608016988380139,
+    "recall_at_k": 0.608016988380139,
+    "n_eval": 41911,
+    "n_genes": 41911,
+    "shuffle_precision_mean": 0.0018079263200591728,
+    "shuffle_recall_mean": 0.0018079263200591728,
+    "k": 50
+  },
+  {
+    "species": "SOLPI",
+    "precision_at_k": 0.5926026265309134,
+    "recall_at_k": 0.5926810430236725,
+    "n_eval": 33885,
+    "n_genes": 33885,
+    "shuffle_precision_mean": 0.0022742806551571495,
+    "shuffle_recall_mean": 0.0022742806551571495,
+    "k": 50
+  },
+  {
+    "species": "SOLTU",
+    "precision_at_k": 0.5714111175272772,
+    "recall_at_k": 0.5714111175272772,
+    "n_eval": 32903,
+    "n_genes": 32903,
+    "shuffle_precision_mean": 0.0025204996504877976,
+    "shuffle_recall_mean": 0.0025204996504877976,
+    "k": 50
+  },
+  {
+    "species": "SORBI",
+    "precision_at_k": 0.5804596485772042,
+    "recall_at_k": 0.5804596485772042,
+    "n_eval": 32155,
+    "n_genes": 32155,
+    "shuffle_precision_mean": 0.002487948997045561,
+    "shuffle_recall_mean": 0.002487948997045561,
+    "k": 50
+  },
+  {
+    "species": "SPIOL",
+    "precision_at_k": 0.5132627181858868,
+    "recall_at_k": 0.5135475204711883,
+    "n_eval": 33515,
+    "n_genes": 33515,
+    "shuffle_precision_mean": 0.0029500820528121736,
+    "shuffle_recall_mean": 0.002950133202617165,
+    "k": 50
+  },
+  {
+    "species": "STEMA",
+    "precision_at_k": 0.11363715428770221,
+    "recall_at_k": 0.11379293919741103,
+    "n_eval": 28745,
+    "n_genes": 28745,
+    "shuffle_precision_mean": 0.002571577665680988,
+    "shuffle_recall_mean": 0.0025774517977716046,
+    "k": 50
+  },
+  {
+    "species": "STEPA",
+    "precision_at_k": 0.5936574668852168,
+    "recall_at_k": 0.6257102572547832,
+    "n_eval": 45146,
+    "n_genes": 45146,
+    "shuffle_precision_mean": 0.0011042395782572098,
+    "shuffle_recall_mean": 0.0011563436168985767,
+    "k": 50
+  },
+  {
+    "species": "SYNXX",
+    "precision_at_k": 0.28203470665977126,
+    "recall_at_k": 0.28989868589273426,
+    "n_eval": 34806,
+    "n_genes": 34806,
+    "shuffle_precision_mean": 0.0017850945239326556,
+    "shuffle_recall_mean": 0.0018207202041979676,
+    "k": 50
+  },
+  {
+    "species": "TABDI",
+    "precision_at_k": 0.5131820444280579,
+    "recall_at_k": 0.5198067859962825,
+    "n_eval": 54245,
+    "n_genes": 54245,
+    "shuffle_precision_mean": 0.0011094110056226382,
+    "shuffle_recall_mean": 0.0011220614857030396,
+    "k": 50
+  },
+  {
+    "species": "TARHA",
+    "precision_at_k": 0.6899059114593095,
+    "recall_at_k": 0.6919603032130107,
+    "n_eval": 26677,
+    "n_genes": 26677,
+    "shuffle_precision_mean": 0.002405817745623571,
+    "shuffle_recall_mean": 0.002413697298111281,
+    "k": 50
+  },
+  {
+    "species": "TAXCA",
+    "precision_at_k": 0.7672679270993015,
+    "recall_at_k": 0.7712792125942101,
+    "n_eval": 23484,
+    "n_genes": 23484,
+    "shuffle_precision_mean": 0.0024915687276443536,
+    "shuffle_recall_mean": 0.002499938716090225,
+    "k": 50
+  },
+  {
+    "species": "TECIN",
+    "precision_at_k": 0.7032878499900712,
+    "recall_at_k": 0.7611543547567823,
+    "n_eval": 35251,
+    "n_genes": 35251,
+    "shuffle_precision_mean": 0.001403421179541006,
+    "shuffle_recall_mean": 0.0015037024056188133,
+    "k": 50
+  },
+  {
+    "species": "THECA",
+    "precision_at_k": 0.6361567108595264,
+    "recall_at_k": 0.6362099657381202,
+    "n_eval": 26852,
+    "n_genes": 26852,
+    "shuffle_precision_mean": 0.0027734246983464913,
+    "shuffle_recall_mean": 0.0027734246983464913,
+    "k": 50
+  },
+  {
+    "species": "TRIAE",
+    "precision_at_k": 0.49848201324304836,
+    "recall_at_k": 0.49848201324304836,
+    "n_eval": 106773,
+    "n_genes": 106773,
+    "shuffle_precision_mean": 0.0007629269571895517,
+    "shuffle_recall_mean": 0.0007629269571895517,
+    "k": 50
+  },
+  {
+    "species": "TRIDI",
+    "precision_at_k": 0.4933279220779221,
+    "recall_at_k": 0.493377949000917,
+    "n_eval": 61600,
+    "n_genes": 61600,
+    "shuffle_precision_mean": 0.0013366233766233767,
+    "shuffle_recall_mean": 0.0013366233766233767,
+    "k": 50
+  },
+  {
+    "species": "TRIPR",
+    "precision_at_k": 0.6068659788509533,
+    "recall_at_k": 0.6107378343152748,
+    "n_eval": 38867,
+    "n_genes": 38867,
+    "shuffle_precision_mean": 0.0021809761494326805,
+    "shuffle_recall_mean": 0.002186111986787038,
+    "k": 50
+  },
+  {
+    "species": "TRITU",
+    "precision_at_k": 0.468396463499561,
+    "recall_at_k": 0.4686261987202919,
+    "n_eval": 66054,
+    "n_genes": 66054,
+    "shuffle_precision_mean": 0.0013679716595512762,
+    "shuffle_recall_mean": 0.0013681129580847993,
+    "k": 50
+  },
+  {
+    "species": "TRIUR",
+    "precision_at_k": 0.5287222735098182,
+    "recall_at_k": 0.53088039469499,
+    "n_eval": 40079,
+    "n_genes": 40079,
+    "shuffle_precision_mean": 0.0023949699343796004,
+    "shuffle_recall_mean": 0.0023971578575181225,
+    "k": 50
+  },
+  {
+    "species": "VIGAN",
+    "precision_at_k": 0.6177170469455023,
+    "recall_at_k": 0.6222740829289405,
+    "n_eval": 31249,
+    "n_genes": 31249,
+    "shuffle_precision_mean": 0.00264290057281833,
+    "shuffle_recall_mean": 0.0026532269561726505,
+    "k": 50
+  },
+  {
+    "species": "VIGRA",
+    "precision_at_k": 0.5907428366118745,
+    "recall_at_k": 0.5914635768567245,
+    "n_eval": 22266,
+    "n_genes": 22266,
+    "shuffle_precision_mean": 0.003485313931554837,
+    "shuffle_recall_mean": 0.0034860325159435913,
+    "k": 50
+  },
+  {
+    "species": "VITVI",
+    "precision_at_k": 0.6087626131953427,
+    "recall_at_k": 0.6087626131953427,
+    "n_eval": 30920,
+    "n_genes": 30920,
+    "shuffle_precision_mean": 0.0024924967658473485,
+    "shuffle_recall_mean": 0.0024924967658473485,
+    "k": 50
+  },
+  {
+    "species": "ZEAMA",
+    "precision_at_k": 0.5756705906026763,
+    "recall_at_k": 0.5756705906026763,
+    "n_eval": 39756,
+    "n_genes": 39756,
+    "shuffle_precision_mean": 0.0020264614146292383,
+    "shuffle_recall_mean": 0.0020264614146292383,
+    "k": 50
+  },
+  {
+    "species": "ZIZJU",
+    "precision_at_k": 0.56420257300388,
+    "recall_at_k": 0.56420257300388,
+    "n_eval": 29382,
+    "n_genes": 29382,
+    "shuffle_precision_mean": 0.0026557756449526924,
+    "shuffle_recall_mean": 0.0026557756449526924,
+    "k": 50
+  },
+  {
+    "species": "ZOSMA",
+    "precision_at_k": 0.6325969102454743,
+    "recall_at_k": 0.6325969102454743,
+    "n_eval": 21102,
+    "n_genes": 21102,
+    "shuffle_precision_mean": 0.0036639181120272967,
+    "shuffle_recall_mean": 0.0036639181120272967,
+    "k": 50
+  }
+]

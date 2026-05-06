@@ -1,0 +1,21 @@
+{
+  "method": "prott5",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.5101554053239556,
+      "auprc": 0.6637746489905696,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.2799097372320324,
+      "auprc": 0.23816139622812454,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.7994770342090345,
+      "auprc": 0.657799210652934,
+      "n_terms": 6
+    }
+  }
+}

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbit"
+version = "0.1.0"
+description = "Cross-species gene function transfer via coexpression network alignment"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.0.0",
+    "scipy>=1.11.0",
+    "scikit-learn>=1.5.0",
+    "h5py>=3.10.0",
+    "gensim>=4.3.0",
+    "pecanpy>=2.0.0",
+    "matplotlib>=3.8.0",
+    "umap-learn>=0.5.8",
+    "numba>=0.59.0",
+    "tqdm>=4.65.0",
+    "loguru>=0.7.0",
+    "gdown>=5.2.1",
+    "wandb>=0.24.2",
+    "cupy-cuda12x>=14.0.0",
+    "sentencepiece>=0.2.1",
+    "biopython>=1.86",
+    "requests>=2.32.5",
+    "faiss-gpu-cu12>=1.14.0",
+    "tbb>=2022.3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "jupyter>=1.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "gdown>=5.2.1",
+]

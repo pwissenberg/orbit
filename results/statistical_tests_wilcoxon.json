@@ -1,0 +1,38 @@
+{
+  "spearman_rho": {
+    "proc_mean": 0.4067873362264981,
+    "space_mean": 0.0814336484820457,
+    "proc_better": 158,
+    "space_better": 0,
+    "tied": 0,
+    "wilcoxon_stat": 12561.0,
+    "p_value": 5.580408444808019e-28
+  },
+  "hits_at_k": {
+    "proc_mean": 0.12955350844967592,
+    "space_mean": 0.010019850968000114,
+    "proc_better": 158,
+    "space_better": 0,
+    "tied": 0,
+    "wilcoxon_stat": 12561.0,
+    "p_value": 5.580408444808019e-28
+  },
+  "mrr_at_k": {
+    "proc_mean": 0.023863687300266216,
+    "space_mean": 0.0010085984950485827,
+    "proc_better": 158,
+    "space_better": 0,
+    "tied": 0,
+    "wilcoxon_stat": 12561.0,
+    "p_value": 5.580408444808019e-28
+  },
+  "top_m_hits_at_k": {
+    "proc_mean": 0.1874699209407245,
+    "space_mean": 0.020334295327409567,
+    "proc_better": 158,
+    "space_better": 0,
+    "tied": 0,
+    "wilcoxon_stat": 12561.0,
+    "p_value": 5.580408444808019e-28
+  }
+}

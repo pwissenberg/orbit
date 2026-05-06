@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.env
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Build / dist
+build/
+dist/
+
+# Data not tracked in git (mirror data/README.md)
+data/networks/*
+!data/networks/.gitkeep
+!data/networks/*.tsv.gz
+data/networks_raw/
+data/networks_space/
+data/node2vec/
+data/embeddings/
+data/orthofinder/
+data/orthologs/
+data/orthologs_jaccard/
+data/prott5/
+data/annotations/
+data/benchmarks/
+data/sequences/
+data/string_*/
+data/space_published/
+
+# Aligned embeddings: keep all variant directories out, but ship the
+# gzipped Procrustes outputs for the 5 seed species
+results/aligned_embeddings*/*
+!results/aligned_embeddings/*.h5.gz
+
+# WandB caches
+wandb/
+
+# Intermediate UMAP / panel artifacts (regenerable from working repo)
+results/umap_cache/
+results/plots_v2/figure3_panels_AB*

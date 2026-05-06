@@ -1,0 +1,61 @@
+species,compartment,mcc
+ARATH,Cytoplasm,0.2265496597446978
+ARATH,Nucleus,0.4297469529354083
+ARATH,Cell membrane,0.2508606992794282
+ARATH,Plastid,0.4903830304304992
+ARATH,Extracellular,0.4546878767864759
+ARATH,Mitochondrion,0.31234435411166783
+ARATH,Endoplasmic reticulum,0.22455123603609387
+ARATH,Golgi apparatus,0.2949880976145887
+ARATH,Lysosome/Vacuole,0.16443133506023683
+ARATH,Peroxisome,0.11667891195365943
+GLYMA,Cytoplasm,0.0
+GLYMA,Nucleus,0.4076193169909804
+GLYMA,Cell membrane,0.0
+GLYMA,Plastid,0.2563864086507814
+GLYMA,Extracellular,0.03646269240918907
+GLYMA,Mitochondrion,0.0
+GLYMA,Endoplasmic reticulum,0.0
+GLYMA,Golgi apparatus,0.0
+GLYMA,Lysosome/Vacuole,0.0
+GLYMA,Peroxisome,0.0
+MEDTR,Cytoplasm,0.0
+MEDTR,Nucleus,0.33129573226973885
+MEDTR,Cell membrane,0.0
+MEDTR,Plastid,0.0
+MEDTR,Extracellular,0.0
+MEDTR,Mitochondrion,0.0
+MEDTR,Endoplasmic reticulum,0.0
+MEDTR,Golgi apparatus,0.0
+MEDTR,Lysosome/Vacuole,0.0
+MEDTR,Peroxisome,0.0
+ORYSA,Cytoplasm,0.0
+ORYSA,Nucleus,0.4235722325108996
+ORYSA,Cell membrane,0.0
+ORYSA,Plastid,0.3009384061092348
+ORYSA,Extracellular,0.05945830444637047
+ORYSA,Mitochondrion,0.0
+ORYSA,Endoplasmic reticulum,0.0
+ORYSA,Golgi apparatus,0.0
+ORYSA,Lysosome/Vacuole,0.0
+ORYSA,Peroxisome,0.0
+POPTR,Cytoplasm,0.0
+POPTR,Nucleus,0.38312793994861216
+POPTR,Cell membrane,0.041568530478239
+POPTR,Plastid,0.23122425809831818
+POPTR,Extracellular,0.03346084093373983
+POPTR,Mitochondrion,0.0
+POPTR,Endoplasmic reticulum,0.0
+POPTR,Golgi apparatus,0.0
+POPTR,Lysosome/Vacuole,0.0
+POPTR,Peroxisome,0.0
+ZEAMA,Cytoplasm,0.0
+ZEAMA,Nucleus,0.17835755163922587
+ZEAMA,Cell membrane,0.0
+ZEAMA,Plastid,0.0
+ZEAMA,Extracellular,0.0
+ZEAMA,Mitochondrion,0.0
+ZEAMA,Endoplasmic reticulum,0.0
+ZEAMA,Golgi apparatus,0.0
+ZEAMA,Lysosome/Vacuole,0.0
+ZEAMA,Peroxisome,0.0

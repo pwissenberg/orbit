@@ -1,0 +1,1057 @@
+{
+  "seeds": [
+    "ARATH",
+    "ORYSA",
+    "PICAB",
+    "SELMO",
+    "MARPO"
+  ],
+  "k": 5,
+  "seed_min_dist": 0.26339899221255153,
+  "seed_mean_dist": 0.348034118956276,
+  "seed_min_shared_ogs": 6164,
+  "seed_mean_shared_ogs": 6637,
+  "nonseed_max_dist": 0.4416377744758131,
+  "nonseed_mean_dist": 0.2541713081090646,
+  "og_coverage": 0.0316399228518572,
+  "per_nonseed": [
+    {
+      "species": "ABROB",
+      "nearest_seed": "MARPO",
+      "distance": 0.3970629765602937,
+      "shared_ogs": 6406
+    },
+    {
+      "species": "ACOCA",
+      "nearest_seed": "ARATH",
+      "distance": 0.3298687664041995,
+      "shared_ogs": 6384
+    },
+    {
+      "species": "ACTCH",
+      "nearest_seed": "ARATH",
+      "distance": 0.16337125814647077,
+      "shared_ogs": 7574
+    },
+    {
+      "species": "ACTDI",
+      "nearest_seed": "MARPO",
+      "distance": 0.4380784115766448,
+      "shared_ogs": 6680
+    },
+    {
+      "species": "ADILA",
+      "nearest_seed": "MARPO",
+      "distance": 0.36003453568687643,
+      "shared_ogs": 6671
+    },
+    {
+      "species": "AEGTA",
+      "nearest_seed": "ORYSA",
+      "distance": 0.1897500241289451,
+      "shared_ogs": 8419
+    },
+    {
+      "species": "ALSLA",
+      "nearest_seed": "MARPO",
+      "distance": 0.4005955508845682,
+      "shared_ogs": 6848
+    },
+    {
+      "species": "AMBOP",
+      "nearest_seed": "MARPO",
+      "distance": 0.4324435318275154,
+      "shared_ogs": 6911
+    },
+    {
+      "species": "AMBTR",
+      "nearest_seed": "ARATH",
+      "distance": 0.2013029315960912,
+      "shared_ogs": 7356
+    },
+    {
+      "species": "ANACO",
+      "nearest_seed": "ARATH",
+      "distance": 0.2401833142381002,
+      "shared_ogs": 7295
+    },
+    {
+      "species": "ANGEV",
+      "nearest_seed": "MARPO",
+      "distance": 0.3030883919062833,
+      "shared_ogs": 6548
+    },
+    {
+      "species": "ARAAL",
+      "nearest_seed": "ARATH",
+      "distance": 0.26521835024261137,
+      "shared_ogs": 6678
+    },
+    {
+      "species": "ARAHA",
+      "nearest_seed": "ARATH",
+      "distance": 0.10780343657655686,
+      "shared_ogs": 8415
+    },
+    {
+      "species": "ARALY",
+      "nearest_seed": "ARATH",
+      "distance": 0.10206073752711496,
+      "shared_ogs": 8438
+    },
+    {
+      "species": "ASPOF",
+      "nearest_seed": "ARATH",
+      "distance": 0.2610126313554824,
+      "shared_ogs": 6962
+    },
+    {
+      "species": "BETVU",
+      "nearest_seed": "ARATH",
+      "distance": 0.15673981191222572,
+      "shared_ogs": 7532
+    },
+    {
+      "species": "BRADI",
+      "nearest_seed": "ORYSA",
+      "distance": 0.17302697302697304,
+      "shared_ogs": 8322
+    },
+    {
+      "species": "BRAJU",
+      "nearest_seed": "ARATH",
+      "distance": 0.1175717486397098,
+      "shared_ogs": 8280
+    },
+    {
+      "species": "BRANA",
+      "nearest_seed": "ARATH",
+      "distance": 0.15923373200891952,
+      "shared_ogs": 8330
+    },
+    {
+      "species": "BRAOL",
+      "nearest_seed": "ARATH",
+      "distance": 0.20747065101387407,
+      "shared_ogs": 7434
+    },
+    {
+      "species": "BRARA",
+      "nearest_seed": "ARATH",
+      "distance": 0.113646147223418,
+      "shared_ogs": 8251
+    },
+    {
+      "species": "BUXMI",
+      "nearest_seed": "ARATH",
+      "distance": 0.29582704876822524,
+      "shared_ogs": 7004
+    },
+    {
+      "species": "BUXSI",
+      "nearest_seed": "ARATH",
+      "distance": 0.2731626067041432,
+      "shared_ogs": 6982
+    },
+    {
+      "species": "CAJCA",
+      "nearest_seed": "ARATH",
+      "distance": 0.2321843727888406,
+      "shared_ogs": 7599
+    },
+    {
+      "species": "CAMSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.13933236574746008,
+      "shared_ogs": 8382
+    },
+    {
+      "species": "CAPAN",
+      "nearest_seed": "ARATH",
+      "distance": 0.2701359302089673,
+      "shared_ogs": 7195
+    },
+    {
+      "species": "CAPRU",
+      "nearest_seed": "ARATH",
+      "distance": 0.09846994535519125,
+      "shared_ogs": 8312
+    },
+    {
+      "species": "CARPA",
+      "nearest_seed": "ARATH",
+      "distance": 0.21574436567558988,
+      "shared_ogs": 7413
+    },
+    {
+      "species": "CELOR",
+      "nearest_seed": "ARATH",
+      "distance": 0.2346290513621191,
+      "shared_ogs": 7108
+    },
+    {
+      "species": "CENAM",
+      "nearest_seed": "ORYSA",
+      "distance": 0.20201123927832002,
+      "shared_ogs": 8153
+    },
+    {
+      "species": "CHEQU",
+      "nearest_seed": "ARATH",
+      "distance": 0.20396782841823055,
+      "shared_ogs": 7423
+    },
+    {
+      "species": "CIBBA",
+      "nearest_seed": "MARPO",
+      "distance": 0.4416377744758131,
+      "shared_ogs": 6767
+    },
+    {
+      "species": "CICAR",
+      "nearest_seed": "ARATH",
+      "distance": 0.2127773037542662,
+      "shared_ogs": 7381
+    },
+    {
+      "species": "CITCL",
+      "nearest_seed": "ARATH",
+      "distance": 0.15253486827540402,
+      "shared_ogs": 7656
+    },
+    {
+      "species": "CITLA",
+      "nearest_seed": "ARATH",
+      "distance": 0.21565460809646855,
+      "shared_ogs": 7287
+    },
+    {
+      "species": "CITMA",
+      "nearest_seed": "ARATH",
+      "distance": 0.21646341463414634,
+      "shared_ogs": 7453
+    },
+    {
+      "species": "CITSI",
+      "nearest_seed": "ARATH",
+      "distance": 0.19678415504206154,
+      "shared_ogs": 7545
+    },
+    {
+      "species": "COFCA",
+      "nearest_seed": "ARATH",
+      "distance": 0.17350192413413965,
+      "shared_ogs": 7517
+    },
+    {
+      "species": "CORCA",
+      "nearest_seed": "ARATH",
+      "distance": 0.2416352990380594,
+      "shared_ogs": 7253
+    },
+    {
+      "species": "CUCME",
+      "nearest_seed": "ARATH",
+      "distance": 0.19454584496456948,
+      "shared_ogs": 7502
+    },
+    {
+      "species": "CUCSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.18790992566681242,
+      "shared_ogs": 7429
+    },
+    {
+      "species": "CYCBI",
+      "nearest_seed": "ARATH",
+      "distance": 0.37607112253641817,
+      "shared_ogs": 5826
+    },
+    {
+      "species": "CYCED",
+      "nearest_seed": "PICAB",
+      "distance": 0.28987450905259127,
+      "shared_ogs": 7496
+    },
+    {
+      "species": "CYRRE",
+      "nearest_seed": "ARATH",
+      "distance": 0.34256851370274055,
+      "shared_ogs": 6573
+    },
+    {
+      "species": "DAUCA",
+      "nearest_seed": "ARATH",
+      "distance": 0.1623110151187905,
+      "shared_ogs": 7757
+    },
+    {
+      "species": "DAVDE",
+      "nearest_seed": "MARPO",
+      "distance": 0.3978794141432294,
+      "shared_ogs": 6705
+    },
+    {
+      "species": "DICCU",
+      "nearest_seed": "MARPO",
+      "distance": 0.35945308816595944,
+      "shared_ogs": 6796
+    },
+    {
+      "species": "DIOVI",
+      "nearest_seed": "ARATH",
+      "distance": 0.3991375592927986,
+      "shared_ogs": 6967
+    },
+    {
+      "species": "DIPPR",
+      "nearest_seed": "MARPO",
+      "distance": 0.386845443015039,
+      "shared_ogs": 6768
+    },
+    {
+      "species": "ELAGU",
+      "nearest_seed": "ARATH",
+      "distance": 0.24692025070239895,
+      "shared_ogs": 6969
+    },
+    {
+      "species": "EPIPI",
+      "nearest_seed": "ARATH",
+      "distance": 0.43533291737231483,
+      "shared_ogs": 6336
+    },
+    {
+      "species": "EQUHY",
+      "nearest_seed": "MARPO",
+      "distance": 0.3317214700193424,
+      "shared_ogs": 6224
+    },
+    {
+      "species": "ERATE",
+      "nearest_seed": "ORYSA",
+      "distance": 0.2780918377467024,
+      "shared_ogs": 7319
+    },
+    {
+      "species": "ERYGU",
+      "nearest_seed": "ARATH",
+      "distance": 0.18910290518250505,
+      "shared_ogs": 7620
+    },
+    {
+      "species": "EUCGR",
+      "nearest_seed": "ARATH",
+      "distance": 0.16945975744211686,
+      "shared_ogs": 7533
+    },
+    {
+      "species": "FRAEX",
+      "nearest_seed": "ARATH",
+      "distance": 0.20355834641548928,
+      "shared_ogs": 7610
+    },
+    {
+      "species": "FRAVE",
+      "nearest_seed": "ARATH",
+      "distance": 0.21502057613168724,
+      "shared_ogs": 7630
+    },
+    {
+      "species": "GINBI",
+      "nearest_seed": "PICAB",
+      "distance": 0.2755172755172755,
+      "shared_ogs": 7622
+    },
+    {
+      "species": "GLOSU",
+      "nearest_seed": "ARATH",
+      "distance": 0.31358210560275296,
+      "shared_ogs": 6383
+    },
+    {
+      "species": "GLYMA",
+      "nearest_seed": "ARATH",
+      "distance": 0.17487157534246575,
+      "shared_ogs": 7710
+    },
+    {
+      "species": "GNEGN",
+      "nearest_seed": "PICAB",
+      "distance": 0.3128852956038403,
+      "shared_ogs": 6834
+    },
+    {
+      "species": "GOSAR",
+      "nearest_seed": "ARATH",
+      "distance": 0.18684014076996908,
+      "shared_ogs": 7626
+    },
+    {
+      "species": "GOSBA",
+      "nearest_seed": "ARATH",
+      "distance": 0.20584938347090595,
+      "shared_ogs": 7794
+    },
+    {
+      "species": "GOSHI",
+      "nearest_seed": "ARATH",
+      "distance": 0.2076258261311642,
+      "shared_ogs": 7793
+    },
+    {
+      "species": "GOSRA",
+      "nearest_seed": "ARATH",
+      "distance": 0.19460020768431982,
+      "shared_ogs": 7756
+    },
+    {
+      "species": "GUAOF",
+      "nearest_seed": "ARATH",
+      "distance": 0.2370220038453322,
+      "shared_ogs": 7144
+    },
+    {
+      "species": "HACVI",
+      "nearest_seed": "ARATH",
+      "distance": 0.23657262277951932,
+      "shared_ogs": 7307
+    },
+    {
+      "species": "HALUN",
+      "nearest_seed": "ARATH",
+      "distance": 0.3108970890596256,
+      "shared_ogs": 6368
+    },
+    {
+      "species": "HELAN",
+      "nearest_seed": "ARATH",
+      "distance": 0.18862467866323906,
+      "shared_ogs": 7575
+    },
+    {
+      "species": "HEVBR",
+      "nearest_seed": "ARATH",
+      "distance": 0.2519107622392068,
+      "shared_ogs": 7244
+    },
+    {
+      "species": "HORVU",
+      "nearest_seed": "ORYSA",
+      "distance": 0.20495473087255,
+      "shared_ogs": 7996
+    },
+    {
+      "species": "HYDVE",
+      "nearest_seed": "ARATH",
+      "distance": 0.3314745406344273,
+      "shared_ogs": 7315
+    },
+    {
+      "species": "ILEVE",
+      "nearest_seed": "ARATH",
+      "distance": 0.250996015936255,
+      "shared_ogs": 7146
+    },
+    {
+      "species": "JATCU",
+      "nearest_seed": "ARATH",
+      "distance": 0.23399313270046454,
+      "shared_ogs": 7585
+    },
+    {
+      "species": "LACSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.20318767152206038,
+      "shared_ogs": 7550
+    },
+    {
+      "species": "LINBE",
+      "nearest_seed": "ARATH",
+      "distance": 0.288151364764268,
+      "shared_ogs": 6886
+    },
+    {
+      "species": "LINEN",
+      "nearest_seed": "MARPO",
+      "distance": 0.3632664385461944,
+      "shared_ogs": 6889
+    },
+    {
+      "species": "LYGFL",
+      "nearest_seed": "MARPO",
+      "distance": 0.3614845119812975,
+      "shared_ogs": 6555
+    },
+    {
+      "species": "MALDO",
+      "nearest_seed": "ARATH",
+      "distance": 0.21382155750386797,
+      "shared_ogs": 7622
+    },
+    {
+      "species": "MANES",
+      "nearest_seed": "ARATH",
+      "distance": 0.1899253338942055,
+      "shared_ogs": 7703
+    },
+    {
+      "species": "MEDTR",
+      "nearest_seed": "ARATH",
+      "distance": 0.23883994853013957,
+      "shared_ogs": 7691
+    },
+    {
+      "species": "MICSP",
+      "nearest_seed": "MARPO",
+      "distance": 0.36318686444631026,
+      "shared_ogs": 6827
+    },
+    {
+      "species": "MUSAC",
+      "nearest_seed": "ARATH",
+      "distance": 0.17075046698165036,
+      "shared_ogs": 7548
+    },
+    {
+      "species": "NELNU",
+      "nearest_seed": "ARATH",
+      "distance": 0.1943178204176826,
+      "shared_ogs": 7600
+    },
+    {
+      "species": "NEPBI",
+      "nearest_seed": "MARPO",
+      "distance": 0.37606916214476227,
+      "shared_ogs": 6786
+    },
+    {
+      "species": "NICAT",
+      "nearest_seed": "ARATH",
+      "distance": 0.23589269195189638,
+      "shared_ogs": 7434
+    },
+    {
+      "species": "NICBE",
+      "nearest_seed": "ARATH",
+      "distance": 0.2602237845331221,
+      "shared_ogs": 7471
+    },
+    {
+      "species": "NICTA",
+      "nearest_seed": "ARATH",
+      "distance": 0.24307813577692383,
+      "shared_ogs": 7682
+    },
+    {
+      "species": "NUPAD",
+      "nearest_seed": "ARATH",
+      "distance": 0.3145842127479949,
+      "shared_ogs": 6495
+    },
+    {
+      "species": "OLEEU",
+      "nearest_seed": "ARATH",
+      "distance": 0.24886970817920262,
+      "shared_ogs": 7310
+    },
+    {
+      "species": "OPHRE",
+      "nearest_seed": "MARPO",
+      "distance": 0.30973259716358126,
+      "shared_ogs": 6382
+    },
+    {
+      "species": "ORYRU",
+      "nearest_seed": "ORYSA",
+      "distance": 0.08783991790661878,
+      "shared_ogs": 12730
+    },
+    {
+      "species": "PALCE",
+      "nearest_seed": "MARPO",
+      "distance": 0.3029247175588639,
+      "shared_ogs": 6621
+    },
+    {
+      "species": "PANHA",
+      "nearest_seed": "ORYSA",
+      "distance": 0.14396695840298948,
+      "shared_ogs": 8742
+    },
+    {
+      "species": "PHAVU",
+      "nearest_seed": "ARATH",
+      "distance": 0.19317104015175465,
+      "shared_ogs": 7656
+    },
+    {
+      "species": "PHLPH",
+      "nearest_seed": "MARPO",
+      "distance": 0.4042534337616305,
+      "shared_ogs": 6761
+    },
+    {
+      "species": "PHYBR",
+      "nearest_seed": "ARATH",
+      "distance": 0.2601372426699938,
+      "shared_ogs": 7116
+    },
+    {
+      "species": "PHYED",
+      "nearest_seed": "ORYSA",
+      "distance": 0.19462102689486552,
+      "shared_ogs": 8276
+    },
+    {
+      "species": "PHYPA",
+      "nearest_seed": "MARPO",
+      "distance": 0.18021445866482186,
+      "shared_ogs": 7241
+    },
+    {
+      "species": "PIPSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.32767804300651016,
+      "shared_ogs": 6816
+    },
+    {
+      "species": "PISSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.22210860006135597,
+      "shared_ogs": 7608
+    },
+    {
+      "species": "PLEIR",
+      "nearest_seed": "MARPO",
+      "distance": 0.4338344622501239,
+      "shared_ogs": 6855
+    },
+    {
+      "species": "PLEVA",
+      "nearest_seed": "MARPO",
+      "distance": 0.3639760837070254,
+      "shared_ogs": 6810
+    },
+    {
+      "species": "PODNE",
+      "nearest_seed": "PICAB",
+      "distance": 0.29717914021026337,
+      "shared_ogs": 6812
+    },
+    {
+      "species": "POLXX",
+      "nearest_seed": "ARATH",
+      "distance": 0.343466172381835,
+      "shared_ogs": 7084
+    },
+    {
+      "species": "POPTR",
+      "nearest_seed": "ARATH",
+      "distance": 0.15651135005973715,
+      "shared_ogs": 7766
+    },
+    {
+      "species": "PRUAV",
+      "nearest_seed": "ARATH",
+      "distance": 0.2634452082490902,
+      "shared_ogs": 7286
+    },
+    {
+      "species": "PRUPE",
+      "nearest_seed": "ARATH",
+      "distance": 0.19141775347076145,
+      "shared_ogs": 7688
+    },
+    {
+      "species": "PSEME",
+      "nearest_seed": "PICAB",
+      "distance": 0.2498725660108064,
+      "shared_ogs": 7750
+    },
+    {
+      "species": "PSINU",
+      "nearest_seed": "MARPO",
+      "distance": 0.3296869923101917,
+      "shared_ogs": 6192
+    },
+    {
+      "species": "PYRPI",
+      "nearest_seed": "MARPO",
+      "distance": 0.4341613358810335,
+      "shared_ogs": 6816
+    },
+    {
+      "species": "RAPSA",
+      "nearest_seed": "ARATH",
+      "distance": 0.1921419264307908,
+      "shared_ogs": 8081
+    },
+    {
+      "species": "RICCO",
+      "nearest_seed": "ARATH",
+      "distance": 0.22183638034930037,
+      "shared_ogs": 7621
+    },
+    {
+      "species": "ROSCH",
+      "nearest_seed": "ARATH",
+      "distance": 0.21687113454324242,
+      "shared_ogs": 7724
+    },
+    {
+      "species": "SACSP",
+      "nearest_seed": "ORYSA",
+      "distance": 0.23259230241895995,
+      "shared_ogs": 7895
+    },
+    {
+      "species": "SALMO",
+      "nearest_seed": "MARPO",
+      "distance": 0.3416666666666667,
+      "shared_ogs": 6559
+    },
+    {
+      "species": "SELER",
+      "nearest_seed": "SELMO",
+      "distance": 0.37360526797146515,
+      "shared_ogs": 7409
+    },
+    {
+      "species": "SELWI",
+      "nearest_seed": "SELMO",
+      "distance": 0.27701125026533646,
+      "shared_ogs": 7288
+    },
+    {
+      "species": "SESIN",
+      "nearest_seed": "ARATH",
+      "distance": 0.21206398578093758,
+      "shared_ogs": 7093
+    },
+    {
+      "species": "SETIT",
+      "nearest_seed": "ORYSA",
+      "distance": 0.14075899457861016,
+      "shared_ogs": 8759
+    },
+    {
+      "species": "SETVI",
+      "nearest_seed": "ORYSA",
+      "distance": 0.15302879841112216,
+      "shared_ogs": 8551
+    },
+    {
+      "species": "SMIHI",
+      "nearest_seed": "ARATH",
+      "distance": 0.38638902996444896,
+      "shared_ogs": 6041
+    },
+    {
+      "species": "SOLLY",
+      "nearest_seed": "ARATH",
+      "distance": 0.2571797674649707,
+      "shared_ogs": 7478
+    },
+    {
+      "species": "SOLME",
+      "nearest_seed": "ARATH",
+      "distance": 0.3286101899306602,
+      "shared_ogs": 6681
+    },
+    {
+      "species": "SOLPE",
+      "nearest_seed": "ARATH",
+      "distance": 0.23207984675874585,
+      "shared_ogs": 7617
+    },
+    {
+      "species": "SOLPI",
+      "nearest_seed": "ARATH",
+      "distance": 0.2663491118388409,
+      "shared_ogs": 7396
+    },
+    {
+      "species": "SOLTU",
+      "nearest_seed": "ARATH",
+      "distance": 0.230965503163911,
+      "shared_ogs": 7535
+    },
+    {
+      "species": "SORBI",
+      "nearest_seed": "ORYSA",
+      "distance": 0.14488579940417082,
+      "shared_ogs": 8634
+    },
+    {
+      "species": "SPIOL",
+      "nearest_seed": "ARATH",
+      "distance": 0.24627183638687686,
+      "shared_ogs": 7077
+    },
+    {
+      "species": "STEMA",
+      "nearest_seed": "ARATH",
+      "distance": 0.2866280840694487,
+      "shared_ogs": 7028
+    },
+    {
+      "species": "STEPA",
+      "nearest_seed": "MARPO",
+      "distance": 0.39330135039090264,
+      "shared_ogs": 6833
+    },
+    {
+      "species": "SYNXX",
+      "nearest_seed": "ARATH",
+      "distance": 0.41437007874015747,
+      "shared_ogs": 5950
+    },
+    {
+      "species": "TABDI",
+      "nearest_seed": "ARATH",
+      "distance": 0.3759729272419628,
+      "shared_ogs": 7379
+    },
+    {
+      "species": "TARHA",
+      "nearest_seed": "ARATH",
+      "distance": 0.14165466829106213,
+      "shared_ogs": 7757
+    },
+    {
+      "species": "TAXCA",
+      "nearest_seed": "PICAB",
+      "distance": 0.26271099744245524,
+      "shared_ogs": 7295
+    },
+    {
+      "species": "TECIN",
+      "nearest_seed": "MARPO",
+      "distance": 0.3850180505415162,
+      "shared_ogs": 6815
+    },
+    {
+      "species": "THECA",
+      "nearest_seed": "ARATH",
+      "distance": 0.194539960404293,
+      "shared_ogs": 7730
+    },
+    {
+      "species": "TRIAE",
+      "nearest_seed": "ORYSA",
+      "distance": 0.1705669710806697,
+      "shared_ogs": 8750
+    },
+    {
+      "species": "TRIDI",
+      "nearest_seed": "ORYSA",
+      "distance": 0.18935655539429125,
+      "shared_ogs": 8421
+    },
+    {
+      "species": "TRIPR",
+      "nearest_seed": "ARATH",
+      "distance": 0.242906918865107,
+      "shared_ogs": 7607
+    },
+    {
+      "species": "TRITU",
+      "nearest_seed": "ORYSA",
+      "distance": 0.18607570490536887,
+      "shared_ogs": 8445
+    },
+    {
+      "species": "TRIUR",
+      "nearest_seed": "ORYSA",
+      "distance": 0.2516947511136936,
+      "shared_ogs": 7773
+    },
+    {
+      "species": "VIGAN",
+      "nearest_seed": "ARATH",
+      "distance": 0.22693843244379072,
+      "shared_ogs": 7359
+    },
+    {
+      "species": "VIGRA",
+      "nearest_seed": "ARATH",
+      "distance": 0.23018341735492867,
+      "shared_ogs": 7177
+    },
+    {
+      "species": "VITVI",
+      "nearest_seed": "ARATH",
+      "distance": 0.17718940936863545,
+      "shared_ogs": 7677
+    },
+    {
+      "species": "ZEAMA",
+      "nearest_seed": "ORYSA",
+      "distance": 0.1867723314744154,
+      "shared_ogs": 8358
+    },
+    {
+      "species": "ZIZJU",
+      "nearest_seed": "ARATH",
+      "distance": 0.250576882735473,
+      "shared_ogs": 7145
+    },
+    {
+      "species": "ZOSMA",
+      "nearest_seed": "ARATH",
+      "distance": 0.22069964349376114,
+      "shared_ogs": 6995
+    }
+  ],
+  "groups": {
+    "ABROB": "MARPO",
+    "ACOCA": "ARATH",
+    "ACTCH": "ARATH",
+    "ACTDI": "MARPO",
+    "ADILA": "MARPO",
+    "AEGTA": "ORYSA",
+    "ALSLA": "MARPO",
+    "AMBOP": "MARPO",
+    "AMBTR": "ARATH",
+    "ANACO": "ARATH",
+    "ANGEV": "MARPO",
+    "ARAAL": "ARATH",
+    "ARAHA": "ARATH",
+    "ARALY": "ARATH",
+    "ASPOF": "ARATH",
+    "BETVU": "ARATH",
+    "BRADI": "ORYSA",
+    "BRAJU": "ARATH",
+    "BRANA": "ARATH",
+    "BRAOL": "ARATH",
+    "BRARA": "ARATH",
+    "BUXMI": "ARATH",
+    "BUXSI": "ARATH",
+    "CAJCA": "ARATH",
+    "CAMSA": "ARATH",
+    "CAPAN": "ARATH",
+    "CAPRU": "ARATH",
+    "CARPA": "ARATH",
+    "CELOR": "ARATH",
+    "CENAM": "ORYSA",
+    "CHEQU": "ARATH",
+    "CIBBA": "MARPO",
+    "CICAR": "ARATH",
+    "CITCL": "ARATH",
+    "CITLA": "ARATH",
+    "CITMA": "ARATH",
+    "CITSI": "ARATH",
+    "COFCA": "ARATH",
+    "CORCA": "ARATH",
+    "CUCME": "ARATH",
+    "CUCSA": "ARATH",
+    "CYCBI": "ARATH",
+    "CYCED": "PICAB",
+    "CYRRE": "ARATH",
+    "DAUCA": "ARATH",
+    "DAVDE": "MARPO",
+    "DICCU": "MARPO",
+    "DIOVI": "ARATH",
+    "DIPPR": "MARPO",
+    "ELAGU": "ARATH",
+    "EPIPI": "ARATH",
+    "EQUHY": "MARPO",
+    "ERATE": "ORYSA",
+    "ERYGU": "ARATH",
+    "EUCGR": "ARATH",
+    "FRAEX": "ARATH",
+    "FRAVE": "ARATH",
+    "GINBI": "PICAB",
+    "GLOSU": "ARATH",
+    "GLYMA": "ARATH",
+    "GNEGN": "PICAB",
+    "GOSAR": "ARATH",
+    "GOSBA": "ARATH",
+    "GOSHI": "ARATH",
+    "GOSRA": "ARATH",
+    "GUAOF": "ARATH",
+    "HACVI": "ARATH",
+    "HALUN": "ARATH",
+    "HELAN": "ARATH",
+    "HEVBR": "ARATH",
+    "HORVU": "ORYSA",
+    "HYDVE": "ARATH",
+    "ILEVE": "ARATH",
+    "JATCU": "ARATH",
+    "LACSA": "ARATH",
+    "LINBE": "ARATH",
+    "LINEN": "MARPO",
+    "LYGFL": "MARPO",
+    "MALDO": "ARATH",
+    "MANES": "ARATH",
+    "MEDTR": "ARATH",
+    "MICSP": "MARPO",
+    "MUSAC": "ARATH",
+    "NELNU": "ARATH",
+    "NEPBI": "MARPO",
+    "NICAT": "ARATH",
+    "NICBE": "ARATH",
+    "NICTA": "ARATH",
+    "NUPAD": "ARATH",
+    "OLEEU": "ARATH",
+    "OPHRE": "MARPO",
+    "ORYRU": "ORYSA",
+    "PALCE": "MARPO",
+    "PANHA": "ORYSA",
+    "PHAVU": "ARATH",
+    "PHLPH": "MARPO",
+    "PHYBR": "ARATH",
+    "PHYED": "ORYSA",
+    "PHYPA": "MARPO",
+    "PIPSA": "ARATH",
+    "PISSA": "ARATH",
+    "PLEIR": "MARPO",
+    "PLEVA": "MARPO",
+    "PODNE": "PICAB",
+    "POLXX": "ARATH",
+    "POPTR": "ARATH",
+    "PRUAV": "ARATH",
+    "PRUPE": "ARATH",
+    "PSEME": "PICAB",
+    "PSINU": "MARPO",
+    "PYRPI": "MARPO",
+    "RAPSA": "ARATH",
+    "RICCO": "ARATH",
+    "ROSCH": "ARATH",
+    "SACSP": "ORYSA",
+    "SALMO": "MARPO",
+    "SELER": "SELMO",
+    "SELWI": "SELMO",
+    "SESIN": "ARATH",
+    "SETIT": "ORYSA",
+    "SETVI": "ORYSA",
+    "SMIHI": "ARATH",
+    "SOLLY": "ARATH",
+    "SOLME": "ARATH",
+    "SOLPE": "ARATH",
+    "SOLPI": "ARATH",
+    "SOLTU": "ARATH",
+    "SORBI": "ORYSA",
+    "SPIOL": "ARATH",
+    "STEMA": "ARATH",
+    "STEPA": "MARPO",
+    "SYNXX": "ARATH",
+    "TABDI": "ARATH",
+    "TARHA": "ARATH",
+    "TAXCA": "PICAB",
+    "TECIN": "MARPO",
+    "THECA": "ARATH",
+    "TRIAE": "ORYSA",
+    "TRIDI": "ORYSA",
+    "TRIPR": "ARATH",
+    "TRITU": "ORYSA",
+    "TRIUR": "ORYSA",
+    "VIGAN": "ARATH",
+    "VIGRA": "ARATH",
+    "VITVI": "ARATH",
+    "ZEAMA": "ORYSA",
+    "ZIZJU": "ARATH",
+    "ZOSMA": "ARATH"
+  }
+}

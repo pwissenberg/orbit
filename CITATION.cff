@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+type: software
+title: "ORBIT: Orthogonal Rotation for Biological Inter-species Transfer"
+abstract: >
+  Cross-species alignment of gene-level coexpression-network embeddings across 153 plant
+  species using a closed-form orthogonal Procrustes rotation fitted on Jaccard-weighted
+  ortholog anchors and refined iteratively with CSLS scoring. Improves cross-species
+  retrieval roughly 4x over the SPACE autoencoder baseline at roughly 500x lower wall-clock
+  cost.
+authors:
+  - family-names: Wissenberg
+    given-names: Paul
+    email: paul@rockflour.co
+    orcid: "https://orcid.org/[TODO: USER]"
+  - family-names: Lee
+    given-names: Jiamin
+    orcid: "https://orcid.org/[TODO: USER]"
+  - family-names: Mutwil
+    given-names: Marek
+    email: mutwil@plen.ku.dk
+    orcid: "https://orcid.org/[TODO: USER]"
+license: MIT
+repository-code: "https://github.com/pwissenberg/orbit"
+version: "0.1.0"
+date-released: "2026-04-25"
+keywords:
+  - bioinformatics
+  - plant biology
+  - coexpression networks
+  - cross-species alignment
+  - Procrustes rotation
+  - gene function prediction
+preferred-citation:
+  type: generic
+  title: "Closed-form Procrustes rotation aligns plant coexpression network embeddings across 153 species"
+  authors:
+    - family-names: Wissenberg
+      given-names: Paul
+    - family-names: Lee
+      given-names: Jiamin
+    - family-names: Mutwil
+      given-names: Marek
+  year: 2026
+  notes: "Manuscript"
+  doi: "[TODO: add DOI once published]"

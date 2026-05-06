@@ -1,0 +1,21 @@
+{
+  "method": "procrustes_string",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.38746011549865667,
+      "auprc": 0.5780125095177122,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.12527825360006828,
+      "auprc": 0.08198931712620736,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.7952750062055587,
+      "auprc": 0.5975520902022883,
+      "n_terms": 6
+    }
+  }
+}

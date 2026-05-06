@@ -1,0 +1,21 @@
+{
+  "method": "proc_improved_t5",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.5334743005625209,
+      "auprc": 0.6747165134207369,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.289779849709651,
+      "auprc": 0.24981548571500445,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.7824748914810022,
+      "auprc": 0.6717917758886157,
+      "n_terms": 6
+    }
+  }
+}

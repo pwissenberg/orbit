@@ -1,0 +1,122 @@
+{
+  "SELMO_MARPO": {
+    "n_ortholog_pairs": 89887,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.28713691234588623,
+    "ortho_sim_median": 0.2748943567276001,
+    "ortho_sim_std": 0.1287791132926941,
+    "random_sim_mean": 0.21253354847431183,
+    "random_sim_median": 0.2046690732240677,
+    "random_sim_std": 0.10817469656467438,
+    "mann_whitney_U": 601253082.5,
+    "p_value": 0.0
+  },
+  "ARATH_MARPO": {
+    "n_ortholog_pairs": 102613,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3763071596622467,
+    "ortho_sim_median": 0.3548325002193451,
+    "ortho_sim_std": 0.1757117509841919,
+    "random_sim_mean": 0.2439776360988617,
+    "random_sim_median": 0.2306521236896515,
+    "random_sim_std": 0.12848709523677826,
+    "mann_whitney_U": 746320791.0,
+    "p_value": 0.0
+  },
+  "ARATH_SELMO": {
+    "n_ortholog_pairs": 155552,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.2937389016151428,
+    "ortho_sim_median": 0.28160616755485535,
+    "ortho_sim_std": 0.13438445329666138,
+    "random_sim_mean": 0.22289814054965973,
+    "random_sim_median": 0.21608489751815796,
+    "random_sim_std": 0.10968008637428284,
+    "mann_whitney_U": 1018109823.5,
+    "p_value": 0.0
+  },
+  "ORYSA_MARPO": {
+    "n_ortholog_pairs": 129515,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.39408424496650696,
+    "ortho_sim_median": 0.3786815404891968,
+    "ortho_sim_std": 0.16648316383361816,
+    "random_sim_mean": 0.24819563329219818,
+    "random_sim_median": 0.23183050751686096,
+    "random_sim_std": 0.12431683391332626,
+    "mann_whitney_U": 984876445.0,
+    "p_value": 0.0
+  },
+  "ORYSA_SELMO": {
+    "n_ortholog_pairs": 186506,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3098891079425812,
+    "ortho_sim_median": 0.2986104488372803,
+    "ortho_sim_std": 0.13359500467777252,
+    "random_sim_mean": 0.22629354894161224,
+    "random_sim_median": 0.21734090149402618,
+    "random_sim_std": 0.1087990254163742,
+    "mann_whitney_U": 1280115506.0,
+    "p_value": 0.0
+  },
+  "ARATH_ORYSA": {
+    "n_ortholog_pairs": 345312,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.40026572346687317,
+    "ortho_sim_median": 0.3742203414440155,
+    "ortho_sim_std": 0.18626850843429565,
+    "random_sim_mean": 0.26028549671173096,
+    "random_sim_median": 0.2475402057170868,
+    "random_sim_std": 0.13054320216178894,
+    "mann_whitney_U": 2513439076.5,
+    "p_value": 0.0
+  },
+  "PICAB_MARPO": {
+    "n_ortholog_pairs": 258098,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3107205629348755,
+    "ortho_sim_median": 0.29619264602661133,
+    "ortho_sim_std": 0.14326420426368713,
+    "random_sim_mean": 0.20488125085830688,
+    "random_sim_median": 0.19514250755310059,
+    "random_sim_std": 0.11231617629528046,
+    "mann_whitney_U": 1862559883.5,
+    "p_value": 0.0
+  },
+  "ARATH_PICAB": {
+    "n_ortholog_pairs": 555121,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3176015615463257,
+    "ortho_sim_median": 0.29611748456954956,
+    "ortho_sim_std": 0.1575593650341034,
+    "random_sim_mean": 0.21403729915618896,
+    "random_sim_median": 0.20015168190002441,
+    "random_sim_std": 0.11414946615695953,
+    "mann_whitney_U": 3900981067.5,
+    "p_value": 0.0
+  },
+  "PICAB_SELMO": {
+    "n_ortholog_pairs": 582599,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3060634434223175,
+    "ortho_sim_median": 0.29003697633743286,
+    "ortho_sim_std": 0.1473250389099121,
+    "random_sim_mean": 0.1854335218667984,
+    "random_sim_median": 0.1804499626159668,
+    "random_sim_std": 0.10049983859062195,
+    "mann_whitney_U": 4334216406.0,
+    "p_value": 0.0
+  },
+  "ORYSA_PICAB": {
+    "n_ortholog_pairs": 658897,
+    "n_random_pairs": 10000,
+    "ortho_sim_mean": 0.3322988450527191,
+    "ortho_sim_median": 0.31756794452667236,
+    "ortho_sim_std": 0.1469683200120926,
+    "random_sim_mean": 0.21967719495296478,
+    "random_sim_median": 0.20771074295043945,
+    "random_sim_std": 0.11207953095436096,
+    "mann_whitney_U": 4824028269.0,
+    "p_value": 0.0
+  }
+}

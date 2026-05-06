@@ -1,0 +1,21 @@
+{
+  "method": "procn2v",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.4178549511125058,
+      "auprc": 0.6001002746499722,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.14413644030788703,
+      "auprc": 0.1369659858598489,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.7797062829562731,
+      "auprc": 0.5855182923270063,
+      "n_terms": 6
+    }
+  }
+}

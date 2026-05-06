@@ -1,0 +1,4 @@
+method,stage1_seconds,stage2_seconds,total_seconds,n_species,n_success,per_species_mean_s,per_species_median_s,per_species_min_s,per_species_max_s,per_species_std_s
+Procrustes (basic),3.7727,155.7334,159.5061,153,153,1.0425,0.8772,0.1848,5.2053,0.7377
+Procrustes + Jaccard + iter + CSLS,20.9041,696.7961,717.7002,153,153,4.6908,4.4726,0.1626,12.2042,1.3949
+SPACE autoencoder,2440.8401,84938.1790,87379.0191,153,153,571.1046,554.1281,169.6692,1837.7058,221.8595

@@ -1,0 +1,816 @@
+{
+  "intersection": {
+    "procn2v": {
+      "cc": {
+        "fmax": 0.2018,
+        "precision": 0.1889,
+        "recall": 0.2166,
+        "auprc": 0.0772,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0303,
+        "precision": 0.0231,
+        "recall": 0.0438,
+        "auprc": 0.003,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.6218,
+        "precision": 0.6185,
+        "recall": 0.6251,
+        "auprc": 0.4229,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2846
+    },
+    "vanilla": {
+      "cc": {
+        "fmax": 0.205,
+        "precision": 0.1912,
+        "recall": 0.2209,
+        "auprc": 0.0751,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0278,
+        "precision": 0.0203,
+        "recall": 0.0441,
+        "auprc": 0.0024,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5619,
+        "precision": 0.5463,
+        "recall": 0.5783,
+        "auprc": 0.3736,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2649
+    },
+    "jaccard": {
+      "cc": {
+        "fmax": 0.1935,
+        "precision": 0.1586,
+        "recall": 0.2481,
+        "auprc": 0.0748,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0293,
+        "precision": 0.0218,
+        "recall": 0.0449,
+        "auprc": 0.003,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.6154,
+        "precision": 0.6101,
+        "recall": 0.6208,
+        "auprc": 0.4248,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2794
+    },
+    "prott5": {
+      "cc": {
+        "fmax": 0.3028,
+        "precision": 0.2626,
+        "recall": 0.3576,
+        "auprc": 0.1605,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0448,
+        "precision": 0.0372,
+        "recall": 0.0564,
+        "auprc": 0.004,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5671,
+        "precision": 0.5582,
+        "recall": 0.5762,
+        "auprc": 0.433,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3049
+    },
+    "space_pub": {
+      "cc": {
+        "fmax": 0.2579,
+        "precision": 0.2047,
+        "recall": 0.3484,
+        "auprc": 0.1406,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0611,
+        "precision": 0.0453,
+        "recall": 0.0939,
+        "auprc": 0.0083,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5571,
+        "precision": 0.5445,
+        "recall": 0.5702,
+        "auprc": 0.4524,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.292
+    },
+    "procrustes_string": {
+      "cc": {
+        "fmax": 0.2586,
+        "precision": 0.2373,
+        "recall": 0.2842,
+        "auprc": 0.1014,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0424,
+        "precision": 0.0287,
+        "recall": 0.0811,
+        "auprc": 0.0048,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5967,
+        "precision": 0.5887,
+        "recall": 0.605,
+        "auprc": 0.4766,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2992
+    },
+    "proc_improved": {
+      "cc": {
+        "fmax": 0.1909,
+        "precision": 0.1533,
+        "recall": 0.2527,
+        "auprc": 0.0733,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0293,
+        "precision": 0.0269,
+        "recall": 0.0322,
+        "auprc": 0.0027,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5699,
+        "precision": 0.5478,
+        "recall": 0.5938,
+        "auprc": 0.4222,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2634
+    },
+    "proc_full": {
+      "cc": {
+        "fmax": 0.1886,
+        "precision": 0.1829,
+        "recall": 0.1946,
+        "auprc": 0.0726,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0291,
+        "precision": 0.0204,
+        "recall": 0.0506,
+        "auprc": 0.0027,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5603,
+        "precision": 0.5371,
+        "recall": 0.5857,
+        "auprc": 0.4197,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2593
+    },
+    "procn2v_t5": {
+      "cc": {
+        "fmax": 0.3139,
+        "precision": 0.299,
+        "recall": 0.3303,
+        "auprc": 0.1536,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0441,
+        "precision": 0.033,
+        "recall": 0.0665,
+        "auprc": 0.005,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5772,
+        "precision": 0.5632,
+        "recall": 0.5919,
+        "auprc": 0.4398,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3117
+    },
+    "vanilla_t5": {
+      "cc": {
+        "fmax": 0.3069,
+        "precision": 0.2798,
+        "recall": 0.3399,
+        "auprc": 0.1503,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0429,
+        "precision": 0.0356,
+        "recall": 0.0539,
+        "auprc": 0.0047,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5741,
+        "precision": 0.5626,
+        "recall": 0.5861,
+        "auprc": 0.4236,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.308
+    },
+    "jaccard_t5": {
+      "cc": {
+        "fmax": 0.3096,
+        "precision": 0.288,
+        "recall": 0.3348,
+        "auprc": 0.1514,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0444,
+        "precision": 0.0324,
+        "recall": 0.0708,
+        "auprc": 0.0049,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5799,
+        "precision": 0.5679,
+        "recall": 0.5923,
+        "auprc": 0.4395,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3113
+    },
+    "space_pub_t5": {
+      "cc": {
+        "fmax": 0.3072,
+        "precision": 0.2687,
+        "recall": 0.3585,
+        "auprc": 0.1477,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0625,
+        "precision": 0.0515,
+        "recall": 0.0794,
+        "auprc": 0.0082,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5482,
+        "precision": 0.5108,
+        "recall": 0.5916,
+        "auprc": 0.4371,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.306
+    },
+    "procrustes_string_t5": {
+      "cc": {
+        "fmax": 0.3039,
+        "precision": 0.2988,
+        "recall": 0.3091,
+        "auprc": 0.1543,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0506,
+        "precision": 0.0375,
+        "recall": 0.0777,
+        "auprc": 0.0061,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5671,
+        "precision": 0.547,
+        "recall": 0.5886,
+        "auprc": 0.4645,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3072
+    },
+    "proc_improved_t5": {
+      "cc": {
+        "fmax": 0.3052,
+        "precision": 0.3089,
+        "recall": 0.3017,
+        "auprc": 0.1492,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0436,
+        "precision": 0.0327,
+        "recall": 0.0651,
+        "auprc": 0.005,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.573,
+        "precision": 0.5446,
+        "recall": 0.6045,
+        "auprc": 0.4417,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3073
+    },
+    "proc_full_t5": {
+      "cc": {
+        "fmax": 0.3068,
+        "precision": 0.3153,
+        "recall": 0.2988,
+        "auprc": 0.1486,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0445,
+        "precision": 0.0335,
+        "recall": 0.0664,
+        "auprc": 0.0051,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5734,
+        "precision": 0.5515,
+        "recall": 0.5972,
+        "auprc": 0.4406,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3082
+    }
+  },
+  "per_method": {
+    "procn2v": {
+      "cc": {
+        "fmax": 0.2047,
+        "precision": 0.1924,
+        "recall": 0.2188,
+        "auprc": 0.077,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0317,
+        "precision": 0.024,
+        "recall": 0.0467,
+        "auprc": 0.0032,
+        "n_proteins": 1030,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.6221,
+        "precision": 0.628,
+        "recall": 0.6163,
+        "auprc": 0.4261,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2862
+    },
+    "vanilla": {
+      "cc": {
+        "fmax": 0.207,
+        "precision": 0.1943,
+        "recall": 0.2215,
+        "auprc": 0.0748,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0283,
+        "precision": 0.0189,
+        "recall": 0.0558,
+        "auprc": 0.0025,
+        "n_proteins": 1030,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5602,
+        "precision": 0.5438,
+        "recall": 0.5777,
+        "auprc": 0.3743,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2652
+    },
+    "jaccard": {
+      "cc": {
+        "fmax": 0.1951,
+        "precision": 0.1749,
+        "recall": 0.2207,
+        "auprc": 0.0747,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0294,
+        "precision": 0.0216,
+        "recall": 0.0462,
+        "auprc": 0.003,
+        "n_proteins": 1030,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.6156,
+        "precision": 0.6095,
+        "recall": 0.6218,
+        "auprc": 0.425,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.28
+    },
+    "prott5": {
+      "cc": {
+        "fmax": 0.3037,
+        "precision": 0.2633,
+        "recall": 0.3588,
+        "auprc": 0.1624,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0432,
+        "precision": 0.036,
+        "recall": 0.0539,
+        "auprc": 0.004,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5689,
+        "precision": 0.5601,
+        "recall": 0.578,
+        "auprc": 0.4332,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3053
+    },
+    "space_pub": {
+      "cc": {
+        "fmax": 0.258,
+        "precision": 0.2048,
+        "recall": 0.3484,
+        "auprc": 0.1407,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0615,
+        "precision": 0.0459,
+        "recall": 0.0934,
+        "auprc": 0.0084,
+        "n_proteins": 1026,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5561,
+        "precision": 0.533,
+        "recall": 0.5812,
+        "auprc": 0.4492,
+        "n_proteins": 1682,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2919
+    },
+    "procrustes_string": {
+      "cc": {
+        "fmax": 0.2559,
+        "precision": 0.2334,
+        "recall": 0.2832,
+        "auprc": 0.1014,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0422,
+        "precision": 0.0285,
+        "recall": 0.081,
+        "auprc": 0.0048,
+        "n_proteins": 1024,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5967,
+        "precision": 0.5887,
+        "recall": 0.605,
+        "auprc": 0.4766,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2983
+    },
+    "proc_improved": {
+      "cc": {
+        "fmax": 0.1889,
+        "precision": 0.1504,
+        "recall": 0.2538,
+        "auprc": 0.0733,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0297,
+        "precision": 0.0189,
+        "recall": 0.0684,
+        "auprc": 0.0028,
+        "n_proteins": 1030,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5714,
+        "precision": 0.5502,
+        "recall": 0.5942,
+        "auprc": 0.4227,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2633
+    },
+    "proc_full": {
+      "cc": {
+        "fmax": 0.1885,
+        "precision": 0.1831,
+        "recall": 0.1942,
+        "auprc": 0.0724,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0292,
+        "precision": 0.0221,
+        "recall": 0.0429,
+        "auprc": 0.0027,
+        "n_proteins": 1030,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5596,
+        "precision": 0.5367,
+        "recall": 0.5844,
+        "auprc": 0.4194,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.2591
+    },
+    "procn2v_t5": {
+      "cc": {
+        "fmax": 0.3127,
+        "precision": 0.2922,
+        "recall": 0.3364,
+        "auprc": 0.1539,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0441,
+        "precision": 0.033,
+        "recall": 0.0665,
+        "auprc": 0.0051,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5785,
+        "precision": 0.5647,
+        "recall": 0.5929,
+        "auprc": 0.4429,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3118
+    },
+    "vanilla_t5": {
+      "cc": {
+        "fmax": 0.3086,
+        "precision": 0.2841,
+        "recall": 0.3377,
+        "auprc": 0.1493,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0423,
+        "precision": 0.0317,
+        "recall": 0.0634,
+        "auprc": 0.0046,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5737,
+        "precision": 0.5683,
+        "recall": 0.5792,
+        "auprc": 0.4237,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3082
+    },
+    "jaccard_t5": {
+      "cc": {
+        "fmax": 0.3087,
+        "precision": 0.2598,
+        "recall": 0.3803,
+        "auprc": 0.1517,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0454,
+        "precision": 0.0375,
+        "recall": 0.0576,
+        "auprc": 0.005,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5809,
+        "precision": 0.5624,
+        "recall": 0.6007,
+        "auprc": 0.4385,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3117
+    },
+    "space_pub_t5": {
+      "cc": {
+        "fmax": 0.3069,
+        "precision": 0.2681,
+        "recall": 0.3589,
+        "auprc": 0.1479,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0618,
+        "precision": 0.0506,
+        "recall": 0.0794,
+        "auprc": 0.0083,
+        "n_proteins": 1025,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5475,
+        "precision": 0.5188,
+        "recall": 0.5797,
+        "auprc": 0.4349,
+        "n_proteins": 1682,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3054
+    },
+    "procrustes_string_t5": {
+      "cc": {
+        "fmax": 0.3039,
+        "precision": 0.2988,
+        "recall": 0.3091,
+        "auprc": 0.1543,
+        "n_proteins": 519,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0506,
+        "precision": 0.0375,
+        "recall": 0.0777,
+        "auprc": 0.0061,
+        "n_proteins": 1023,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5671,
+        "precision": 0.547,
+        "recall": 0.5886,
+        "auprc": 0.4645,
+        "n_proteins": 1680,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3072
+    },
+    "proc_improved_t5": {
+      "cc": {
+        "fmax": 0.3067,
+        "precision": 0.3077,
+        "recall": 0.3056,
+        "auprc": 0.1502,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0441,
+        "precision": 0.033,
+        "recall": 0.0664,
+        "auprc": 0.0051,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5725,
+        "precision": 0.5423,
+        "recall": 0.6062,
+        "auprc": 0.4408,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3078
+    },
+    "proc_full_t5": {
+      "cc": {
+        "fmax": 0.3028,
+        "precision": 0.3128,
+        "recall": 0.2934,
+        "auprc": 0.1492,
+        "n_proteins": 520,
+        "source": "direct"
+      },
+      "bp": {
+        "fmax": 0.0449,
+        "precision": 0.0335,
+        "recall": 0.0679,
+        "auprc": 0.0051,
+        "n_proteins": 1029,
+        "source": "direct"
+      },
+      "mf": {
+        "fmax": 0.5727,
+        "precision": 0.5428,
+        "recall": 0.6062,
+        "auprc": 0.4424,
+        "n_proteins": 1687,
+        "source": "direct"
+      },
+      "avg_fmax": 0.3068
+    }
+  }
+}

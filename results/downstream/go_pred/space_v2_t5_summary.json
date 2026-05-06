@@ -1,0 +1,21 @@
+{
+  "method": "space_v2_t5",
+  "annotation_source": "QuickGO experimental (EXP/IDA/IPI/IMP/IGI/IEP/TAS/IC)",
+  "per_aspect": {
+    "CC": {
+      "fmax": 0.523392570204604,
+      "auprc": 0.660064186144883,
+      "n_terms": 12
+    },
+    "BP": {
+      "fmax": 0.27210947124808593,
+      "auprc": 0.21906690293720227,
+      "n_terms": 21
+    },
+    "MF": {
+      "fmax": 0.7875859128903469,
+      "auprc": 0.6749107710152671,
+      "n_terms": 6
+    }
+  }
+}
