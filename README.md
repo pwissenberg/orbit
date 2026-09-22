@@ -1,140 +1,152 @@
 <p align="center">
-  <img src="assets/header.svg" alt="ORBIT — Orthogonal Rotation for Biological Inter-species Transfer" width="900">
+  <img src="assets/header.svg" alt="ORBIT: Orthogonal Rotation for Biological Inter-species Transfer" width="900">
 </p>
 
-# ORBIT — Orthogonal Rotation for Biological Inter-species Transfer
+# ORBIT: Orthogonal Rotation for Biological Inter-species Transfer
 
-**Closed-form Procrustes rotation aligns plant coexpression network embeddings across species.**
+**Closed-form orthogonal Procrustes rotation that aligns gene network embeddings across species.**
 
 This repository accompanies the manuscript:
 
-> Wissenberg P., Lee J., Mutwil M. *ORBIT — Orthogonal Rotation for Biological Inter-species Transfer.* (2026). DOI: `[TODO: add once assigned]`
+> Wissenberg P., Lee J. M., Mutwil M. *ORBIT: Orthogonal Rotation for Biological Inter-species Transfer.* (2026). DOI: `[TODO: add once assigned]`
+>
+> Aligned embeddings (five plant seed species and 1,322 STRING species): Zenodo DOI [10.5281/zenodo.22816523](https://doi.org/10.5281/zenodo.22816523)
 
-## Summary
+## What it does
 
-ORBIT aligns gene-level Node2Vec embeddings derived from species-specific coexpression
-networks into a single shared embedding space, enabling cross-species gene-function transfer.
-We replace the SPACE autoencoder (Hu et al. 2025) with a closed-form orthogonal Procrustes
-rotation fitted on Jaccard-weighted ortholog anchors and refined iteratively with cross-domain
-similarity local scaling (CSLS). On the same data and evaluation protocol the Procrustes
-pipeline improves cross-species retrieval by approximately 4× (Hits@50 0.106 vs 0.026 for
-vanilla SPACE) at orders-of-magnitude lower wall-clock cost.
+ORBIT places independently trained gene network embeddings (Node2Vec, one per species) into one
+shared space so that genes can be compared across species. Each species is rotated onto a
+reference by a closed-form orthogonal Procrustes rotation, solved with one SVD and anchored on
+ortholog pairs. There is nothing to train and no hyperparameter; the rotation preserves every
+within-species distance exactly. Many species are handled in two stages: a few seed species are
+rotated onto the reference, every other species onto the seed with which it shares the most
+orthogroups.
 
-## What this repository ships
+One command, `orbit align`, runs both data tracks of the paper:
 
-Data and aligned embeddings for the **five seed species** used as anchors in the
-two-stage alignment:
-
-- **ARATH** — *Arabidopsis thaliana* (eudicot)
-- **ORYSA** — *Oryza sativa* (monocot)
-- **PICAB** — *Picea abies* (gymnosperm)
-- **SELMO** — *Selaginella moellendorffii* (lycophyte)
-- **MARPO** — *Marchantia polymorpha* (liverwort)
-
-Specifically:
-
-- **Coexpression networks** (gzipped) — `data/networks/{CODE}.tsv.gz` (~54 MB total)
-- **Procrustes-aligned embeddings** (gzipped, the published Procrustes + Jaccard + iterative + CSLS variant) — `results/aligned_embeddings/{CODE}.h5.gz` (~81 MB total)
-
-To reproduce alignment for additional species, run the full pipeline below on your own
-coexpression networks.
+| Track | Embeddings | Anchors | Reference and seeds |
+|-------|------------|---------|---------------------|
+| Plant coexpression networks, 153 species | Node2Vec of TEA-GCN networks (`orbit embed`) | OrthoFinder orthogroups, one row per ortholog pair | *A. thaliana* (ARATH) and 4 more seeds |
+| STRING protein networks, 1,322 eukaryotes | Node2Vec released with SPACE (`orbit fetch string`) | eggNOG orthogroups, one centroid row per shared orthogroup | *H. sapiens* (9606) and the 48 SPACE seeds |
 
 ## Installation
 
-Python 3.12 with [`uv`](https://docs.astral.sh/uv/). An NVIDIA GPU with CUDA 12 is recommended
-(used for FAISS similarity search and Jaccard matrix computation).
+Python 3.10 or newer with [`uv`](https://docs.astral.sh/uv/). Everything runs on a laptop CPU.
 
 ```bash
 git clone https://github.com/pwissenberg/orbit.git
 cd orbit
-uv sync                                # install dependencies
-uv pip install -e ../SPACE             # SPACE library (clone https://github.com/deweihu96/SPACE alongside)
+uv sync                  # numpy + scipy + h5py: the rotation
+uv sync --extra embed    # additionally pecanpy + gensim, for `orbit embed`
+uv run orbit --help
 ```
 
-The compatibility shim `orbit._compat` patches deprecated NumPy aliases so the
-upstream SPACE / pecanpy code runs on modern NumPy. Import it before any SPACE imports.
+## Aligned embeddings on Zenodo
 
-## Quick start
-
-### Reproduce the embedding step on the bundled networks
-
-```bash
-uv run python scripts/example_embed_seeds.py
-```
-
-Writes Node2Vec H5 embeddings to `data/node2vec/{species}.h5` (128-dim float32,
-hyperparameters match the paper: p = 1.0, q = 0.7, num_walks = 20, walk_length = 50,
-epochs = 10).
-
-### Find cross-species nearest neighbors with the published aligned embeddings
+All aligned embeddings of the paper are archived under DOI
+[10.5281/zenodo.22816523](https://doi.org/10.5281/zenodo.22816523): `ARATH.h5`, `ORYSA.h5`,
+`PICAB.h5`, `SELMO.h5`, `MARPO.h5` for the five plant seed species and
+`orbit_string_ppi_aligned_v1.tar` with one `<NCBI taxid>.h5` per STRING species, plus manifests
+and checksums. Every `.h5` file holds two datasets, `proteins` (gene or protein identifiers) and
+`embeddings` (float32, n x 128):
 
 ```python
-import gzip, io, h5py, numpy as np
-
-def load_h5gz(path):
-    with gzip.open(path, "rb") as f:
-        with h5py.File(io.BytesIO(f.read())) as h:
-            proteins = [p.decode() if isinstance(p, bytes) else p for p in h["proteins"][:]]
-            return proteins, h["embeddings"][:]
-
-q_proteins, q_emb = load_h5gz("results/aligned_embeddings/ARATH.h5.gz")
-t_proteins, t_emb = load_h5gz("results/aligned_embeddings/ORYSA.h5.gz")
-
-idx = next(i for i, g in enumerate(q_proteins) if g.startswith("AT1G29910"))  # Lhcb1.1
-qn = q_emb[idx] / np.linalg.norm(q_emb[idx])
-tn = t_emb / np.linalg.norm(t_emb, axis=1, keepdims=True)
-for i in np.argsort(-(tn @ qn))[:10]:
-    print(f"{t_proteins[i]}\t{(tn @ qn)[i]:.3f}")
-# top hits are rice Lhcb-family genes (LOC_Os04g33830.1, ...)
+import h5py
+with h5py.File("ARATH.h5") as f:
+    ids = [p.decode() for p in f["proteins"][:]]
+    X = f["embeddings"][:]            # (n_genes, 128) float32
 ```
 
-## Pipeline
+Because ORBIT is a rotation, within-species distances and cosine similarities equal those of
+the unaligned Node2Vec input; only cross-species comparisons change. This repository bundles
+gzipped copies of the five plant files (`results/aligned_embeddings/`, 80 MB) and the five seed
+coexpression networks (`data/plant/networks/`, 52 MB).
 
-The full pipeline (seed selection → data prep → alignment → evaluation) is reproducible
-end-to-end. Each stage is a CLI script under `scripts/`:
+## Quick start: run the rotation
 
-| Stage | Command | Purpose |
-|-------|---------|---------|
-| 1. Seeds | `uv run python scripts/select_seeds.py --k 5 --plot` | Select anchor species via p-dispersion on OrthoFinder distances |
-| 2. Data prep | `uv run python scripts/prepare_data.py --all` | Clean networks, train Node2Vec, build ortholog pairs |
-| 3. Procrustes alignment | `uv run python scripts/run_improved_procrustes.py --stage all --weighting jaccard --iterative --csls` | Two-stage Procrustes with Jaccard weighting, iterative refinement, CSLS |
-| 4. Cross-species evaluation | `uv run python scripts/evaluate.py --mode all` | Hits@k, Spearman correlation against orthogroup co-membership |
-| 5. Within-species evaluation | `uv run python scripts/eval_raw_n2v_within.py` | Verify within-species coexpression structure is preserved |
-| 6. Statistics | `uv run python scripts/compute_statistical_tests.py` | Mann–Whitney U on ortholog vs random pairs |
-| 7. Downstream | `evaluate_func_pred.py`, `evaluate_subloc.py`, `evaluate_go_transfer.py` | GO prediction, subcellular localization, cross-species GO transfer |
-| 8. Benchmark | `uv run python scripts/benchmark_runtime.py` | Wall-clock comparison: SPACE autoencoder vs Procrustes |
+`orbit align` takes the same three inputs for either track: a directory of `<species>.h5`
+embeddings, a seeds file with one identifier per line, and an orthogroup source. A directory
+of OrthoFinder tables gives pair anchors, an eggNOG members file gives centroid anchors. It
+writes one `<species>.h5` per species plus `alignment_report.tsv` (role, seed, anchor count).
 
-The legacy SPACE autoencoder pipeline is preserved in `scripts/run_alignment.py` and
-`scripts/run_jaccard_improvement.py` for direct comparison.
+### STRING protein networks
 
-## Bringing your own species
+```bash
+uv run orbit fetch string --taxa 1450537 5888 39947    # the 48 seeds plus these non-seeds, ~0.7 GB
+uv run orbit align --embeddings data/string/node2vec --orthogroups data/string/eggnog/2759.tsv.gz \
+    --seeds data/string/seeds.txt --reference 9606 --allow-reflection --out results/string
+```
 
-To extend alignment to species beyond the bundled seeds, you need:
+The result for a non-seed equals the full run, because a non-seed depends only on the seeds;
+`orbit fetch string --all` and `orbit align` without restriction reproduce all 1,322 files of
+the Zenodo archive (7.6 GB of input, minutes of alignment, about 3 GB of memory: only the
+seeds and the species being placed are held at a time, plus the orthogroup table). The
+released STRING files were solved with the unconstrained orthogonal Procrustes solution,
+which is a reflection (det R = -1) for part of the species; `--allow-reflection` reproduces
+them to within 2e-9, the float32 rounding of a different BLAS. Without it every rotation is
+proper (det R = +1), as for the plant track.
 
-- **Coexpression networks** — TEA-GCN: <https://github.com/mutwil/TEA-GCN>
-- **Orthogroups** — OrthoFinder v2.5+: <https://github.com/davidemms/OrthoFinder>
-- **(Optional) ProtT5 protein embeddings** — Rostlab/prot_t5_xl_uniref50, used for the downstream
-  classification baselines
-- **(Optional) GO annotations** — UniProt-GOA experimental evidence
-  (<https://ftp.ebi.ac.uk/pub/databases/GO/goa/proteomes/>)
-- **(Optional) Subcellular localization** — DeepLoc 2.0
-  (<https://services.healthtech.dtu.dk/services/DeepLoc-2.0/>)
-- **SPACE library** — <https://github.com/deweihu96/SPACE>
+### Plant coexpression networks
 
-Place inputs at the paths expected by `scripts/prepare_data.py` and run the pipeline.
+Inputs: `data/plant/node2vec/<SPECIES>.h5` (Node2Vec of the TEA-GCN networks),
+`data/plant/orthogroups/<SPECIES>_transcripts_to_OG.tsv` (OrthoFinder v3.1.0 on the same
+species) and `data/plant/seeds.txt`.
+
+```bash
+uv run orbit embed data/plant/networks/*.tsv.gz --out data/plant/node2vec     # SPACE defaults, needs --extra embed
+uv run orbit align --embeddings data/plant/node2vec --orthogroups data/plant/orthogroups \
+    --seeds data/plant/seeds.txt --reference ARATH --assignment data/plant/seed_assignment.json \
+    --out results/plant
+```
+
+`data/plant/seed_assignment.json` pins each of the 148 non-seed species of the paper to its
+seed (Table S7). That assignment was made during seed selection by the smallest Jaccard
+distance between orthogroup sets, a normalised form of the same overlap; without
+`--assignment` the seed with the most shared orthogroups is used, which can differ for
+individual species, so pass the file to reproduce the paper.
+Node2Vec is stochastic, so embeddings made with `orbit embed` reproduce the procedure of the
+paper, not its files.
+
+### Add your own species to the released frame
+
+Run OrthoFinder on the proteomes of the five seed species together with your species, so that
+all six tables share orthogroup identifiers. Put the released seed files (unzipped) and your
+species' Node2Vec file in one directory, the six OrthoFinder tables in another, and skip
+stage 1:
+
+```bash
+uv run orbit align --embeddings my/embeddings --orthogroups my/orthogroups --seeds data/plant/seeds.txt \
+    --reference ARATH --seeds-aligned --species MYSPEC --out results/mine
+```
+
+### Input formats
+
+- Embeddings: HDF5 with datasets `proteins` and `embeddings` (float32, n x d); the file name is the species identifier.
+- OrthoFinder: `<SPECIES>_transcripts_to_OG.tsv` with columns `Transcript_ID`, `Protein_ID`, `Orthogroup`.
+- eggNOG: a members table `<level>.tsv.gz` as distributed with SPACE (orthogroup in column 2, members `<taxid>.<protein>` in the last column).
+- Networks for `orbit embed`: `geneA<TAB>geneB<TAB>weight`, gzipped or plain, e.g. from [TEA-GCN](https://github.com/mutwil/TEA-GCN).
+
+### Library
+
+```python
+from orbit.align import procrustes_rotation, rotate
+R = procrustes_rotation(anchors_source, anchors_reference)   # (k, d) paired anchor rows -> (d, d)
+aligned = rotate(embeddings_source, R)                        # every gene of the source species
+```
 
 ## Repository layout
 
 ```
-src/orbit/                        # Python package (data prep, alignment, eval, viz)
-scripts/                          # CLI entry points for each pipeline stage
-tests/                            # pytest unit tests
-data/networks/                    # 5 seed-species coexpression networks (gzipped)
-data/                             # small reference files: species names, seeds, taxonomy
-results/                          # headline JSON results and downstream summaries
-results/aligned_embeddings/       # 5 seed-species Procrustes-aligned embeddings (gzipped)
-results/supplementary/            # supplementary tables (CSV) and figures (PDF + PNG)
-report_figures/                   # final figure files used in the paper
+src/orbit/align.py            the rotation: procrustes_rotation, two_stage_rotations
+src/orbit/anchors.py          ortholog anchors: OrthoFinder pairs, eggNOG centroids, nearest seed
+src/orbit/io.py               HDF5 layout of the embedding files
+src/orbit/cli.py              orbit align | fetch | embed
+src/orbit/fetch.py            STRING inputs from Zenodo record 15600639
+src/orbit/embed.py            Node2Vec with the SPACE defaults (optional extra)
+data/plant/                   seeds.txt, seed_assignment.json, 5 seed networks; orthogroups/ and node2vec/ are inputs you provide
+data/string/                  written by `orbit fetch string` (not tracked)
+results/aligned_embeddings/   the 5 released plant files (gzipped)
+tests/                        pytest, including one end-to-end run per track on synthetic data
 ```
 
 ## Citation
@@ -142,7 +154,7 @@ report_figures/                   # final figure files used in the paper
 ```bibtex
 @unpublished{wissenberg2026orbit,
   title  = {ORBIT --- Orthogonal Rotation for Biological Inter-species Transfer},
-  author = {Wissenberg, Paul and Lee, Jiamin and Mutwil, Marek},
+  author = {Wissenberg, Paul and Lee, Jia Min and Mutwil, Marek},
   year   = {2026},
   note   = {Manuscript},
 }

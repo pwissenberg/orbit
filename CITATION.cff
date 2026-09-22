@@ -3,44 +3,49 @@ message: "If you use this software, please cite the accompanying paper."
 type: software
 title: "ORBIT: Orthogonal Rotation for Biological Inter-species Transfer"
 abstract: >
-  Cross-species alignment of gene-level coexpression-network embeddings across 153 plant
-  species using a closed-form orthogonal Procrustes rotation fitted on Jaccard-weighted
-  ortholog anchors and refined iteratively with CSLS scoring. Improves cross-species
-  retrieval roughly 4x over the SPACE autoencoder baseline at roughly 500x lower wall-clock
-  cost.
+  Cross-species alignment of gene network embeddings by a closed-form orthogonal Procrustes
+  rotation anchored on ortholog pairs. Each species is rotated onto a reference with one SVD;
+  the rotation has no hyperparameters, needs no training and preserves within-species geometry
+  exactly. On coexpression networks of 153 plant species ORBIT separates orthologs from
+  non-orthologs better than an autoencoder retrained on the same embeddings (AUROC 0.67 vs 0.55)
+  and aligns all species in 2.7 minutes on CPU; on the STRING protein interaction embeddings of
+  1,322 eukaryotes it matches the published SPACE embeddings on their own benchmarks.
 authors:
   - family-names: Wissenberg
     given-names: Paul
     email: paul@rockflour.co
-    orcid: "https://orcid.org/[TODO: USER]"
+    affiliation: "Department of Plant & Environmental Sciences, University of Copenhagen"
   - family-names: Lee
-    given-names: Jiamin
-    orcid: "https://orcid.org/[TODO: USER]"
+    given-names: Jia Min
+    affiliation: "Department of Plant & Environmental Sciences, University of Copenhagen"
   - family-names: Mutwil
     given-names: Marek
     email: mutwil@plen.ku.dk
-    orcid: "https://orcid.org/[TODO: USER]"
+    affiliation: "Department of Plant & Environmental Sciences, University of Copenhagen"
 license: MIT
 repository-code: "https://github.com/pwissenberg/orbit"
-version: "0.1.0"
-date-released: "2026-04-25"
+version: "1.0.0"
+date-released: "2026-09-22"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22816523"
+    description: "Aligned embeddings for the five plant seed species and the 1,322 STRING species (dataset)"
 keywords:
   - bioinformatics
-  - plant biology
   - coexpression networks
+  - protein interaction networks
   - cross-species alignment
-  - Procrustes rotation
+  - orthogonal Procrustes
   - gene function prediction
 preferred-citation:
-  type: generic
-  title: "Closed-form Procrustes rotation aligns plant coexpression network embeddings across 153 species"
+  type: article
+  title: "ORBIT: Orthogonal Rotation for Biological Inter-species Transfer"
   authors:
     - family-names: Wissenberg
       given-names: Paul
     - family-names: Lee
-      given-names: Jiamin
+      given-names: Jia Min
     - family-names: Mutwil
       given-names: Marek
   year: 2026
-  notes: "Manuscript"
-  doi: "[TODO: add DOI once published]"
+  notes: "Manuscript under review"
