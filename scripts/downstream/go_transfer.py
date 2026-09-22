@@ -38,15 +38,17 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
-from joblib import Parallel, delayed
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import average_precision_score, precision_recall_curve
-from sklearn.preprocessing import StandardScaler
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, feature_matrix, load_arms, log, read_idmap, write_json  # noqa: E402
+from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, write_json  # noqa: E402
 from orbit.io import read_ids  # noqa: E402
+
+require_paper_extra()
+import pandas as pd  # noqa: E402
+from joblib import Parallel, delayed  # noqa: E402
+from sklearn.linear_model import LogisticRegression  # noqa: E402
+from sklearn.metrics import average_precision_score, precision_recall_curve  # noqa: E402
+from sklearn.preprocessing import StandardScaler  # noqa: E402
 
 SEED = 42
 ASPECT_OF_NAMESPACE = {"molecular_function": "MF", "biological_process": "BP", "cellular_component": "CC"}
@@ -193,19 +195,26 @@ def main(argv: list[str] | None = None) -> int:
     aspects = read_obo_aspects(a.obo) if a.obo else None
     labels = read_labels(a.labels, tuple(a.label_columns.split(",")), aspects)
     all_species = [a.train] + list(a.test)
-    species_dir = a.species_dir or Path(a.arm[0].split("=", 1)[1]) if a.arm else None
-    if species_dir is None or not species_dir.is_dir():
-        raise SystemExit("error: --species-dir (or the first --arm) must be a directory of <SPECIES>.h5 files")
-    genes = {sp: read_ids(species_dir / f"{sp}.h5") for sp in all_species}
     cols = tuple(a.idmap_columns.split(","))
+    idmaps: dict[str, dict[str, str] | None] = {}
+    for sp in all_species:
+        idmaps[sp] = read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv", cols) if a.idmap_dir else None
+    rekey_map = {k: v for m in idmaps.values() if m for k, v in m.items()} if a.idmap_dir else None
+    arms = load_arms(a, set(all_species), rekey_map=rekey_map)
+    species_dir = a.species_dir or Path(a.arm[0].split("=", 1)[1])
+    if not species_dir.is_dir():
+        raise SystemExit(f"error: {species_dir} is not a directory of <SPECIES>.h5 files (--species-dir)")
+    genes = {sp: read_ids(species_dir / f"{sp}.h5") for sp in all_species}
     per_species = {}
     for sp in all_species:
-        idmap = read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv", cols) if a.idmap_dir else None
+        idmap = idmaps[sp]
+        if idmap is not None:
+            # prefer, for every accession, the isoform that has an embedding
+            idmap = read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv", cols, keep=genes[sp])
         per_species[sp] = species_labels(labels, sp, genes[sp], idmap)
         n = len({p for d in per_species[sp].values() for p in d})
         log(f"{sp}: {n} labelled genes over {sorted(per_species[sp])}")
 
-    arms = load_arms(a, set(all_species))
     results = []
     for name, embs in arms.items():
         def labelled(sp):

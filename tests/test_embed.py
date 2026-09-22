@@ -88,3 +88,16 @@ def test_cli_embed_explains_the_missing_extra_and_creates_nothing(tmp_path, monk
         main(["embed", str(p), "--out", str(out)])
     assert "uv sync --extra embed" in str(e.value)
     assert not out.exists()
+
+
+@needs_embed_extra
+def test_embed_network_rejects_weights_that_are_not_positive(tmp_path):
+    """All-zero weights would normalise to NaN and negative weights would flip sign; both
+    must be an error naming the cause instead of a silently corrupt embedding."""
+    from orbit.embed import embed_network
+
+    for weights in ("0", "-1"):
+        net = tmp_path / f"net{weights}.tsv"
+        net.write_text(f"a\tb\t{weights}\nb\tc\t{weights}\n")
+        with pytest.raises(ValueError, match="positive"):
+            embed_network(net, tmp_path / "out.h5", num_walks=1, walk_length=3, epochs=1, workers=1)

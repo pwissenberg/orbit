@@ -174,7 +174,8 @@ def load_arms(args: argparse.Namespace, species: Collection[str] | None = None,
         if name not in declared:
             raise SystemExit(f"error: --rekey {name}: unknown arm")
     if args.rekey and rekey_map is None:
-        raise SystemExit("error: --rekey needs an id mapping (--idmap)")
+        raise SystemExit("error: --rekey needs an id mapping from the label ids to the embedding ids; "
+                         "this script was given none")
     for spec in args.arm:
         name, path = _split(spec, "=", "--arm")
         if not Path(path).exists():
@@ -200,11 +201,15 @@ def load_arms(args: argparse.Namespace, species: Collection[str] | None = None,
     return arms
 
 
-def read_idmap(path: str | Path, columns: tuple[str, str] | None = None) -> dict[str, str]:
+def read_idmap(path: str | Path, columns: tuple[str, str] | None = None,
+               keep: Collection[str] | None = None) -> dict[str, str]:
     """``{source: target}`` from a TSV with a header row. Default columns are ``From`` and
-    ``To`` (SPACE's id mapping tables); pass ``columns`` for other layouts. The first
-    mapping of a source id wins."""
+    ``To`` (SPACE's id mapping tables); pass ``columns`` for other layouts. With ``keep``
+    only targets in it count (the genes that have an embedding), so a source id listed
+    first with an absent isoform still maps onto the present one. The first mapping of a
+    source id wins."""
     out: dict[str, str] = {}
+    keep = None if keep is None else set(keep)
     with open(path, newline="") as f:
         reader = csv.DictReader(f, delimiter="\t")
         src, dst = columns or ("From", "To")
@@ -212,9 +217,19 @@ def read_idmap(path: str | Path, columns: tuple[str, str] | None = None) -> dict
             raise SystemExit(f"error: {path} has no columns {src!r} and {dst!r}; "
                              f"found {reader.fieldnames}")
         for row in reader:
-            if row[src] and row[dst]:
+            if row[src] and row[dst] and (keep is None or row[dst] in keep):
                 out.setdefault(row[src], row[dst])
     return out
+
+
+def require_paper_extra() -> None:
+    """Exit with the install hint when the optional dependencies are missing."""
+    import importlib.util
+
+    missing = [m for m in ("sklearn", "pandas", "joblib") if importlib.util.find_spec(m) is None]
+    if missing:
+        raise SystemExit("error: the downstream scripts need the optional dependencies: "
+                         "uv sync --extra paper")
 
 
 def write_json(path: str | Path, obj) -> None:

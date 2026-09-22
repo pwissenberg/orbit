@@ -80,7 +80,11 @@ def download_file(url: str, dest: Path, expected_md5: str | None = None, size: i
         log(f"  {dest} has a wrong checksum, downloading again")
     tmp = dest.with_suffix(dest.suffix + ".part")
     done = tmp.stat().st_size if tmp.exists() else 0
-    for attempt in range(1, RETRIES + 1):
+    if size is not None and done >= size:
+        attempts = ()  # every byte is on disk already; a range request past the end is a 416
+    else:
+        attempts = range(1, RETRIES + 1)
+    for attempt in attempts:
         req = urllib.request.Request(url, headers={"Range": f"bytes={done}-"} if done else {})
         try:
             with urllib.request.urlopen(req, timeout=120) as r, open(tmp, "ab" if done else "wb") as out:

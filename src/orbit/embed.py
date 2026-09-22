@@ -78,6 +78,8 @@ def embed_network(network: str | Path, out_h5: str | Path, *, dimensions: int = 
     """Embed one network and write ``out_h5`` in the ORBIT layout. Returns the gene count."""
     pp, Word2Vec, numba = import_backends()
     ids, src, dst, w = read_network(network)
+    if w.max() <= 0:
+        raise ValueError(f"{network}: edge weights must be positive (largest weight is {w.max()})")
     w = np.trunc(w / w.max() * 1000) / 1000  # SPACE stores integer scores 0..1000, then divides
     n_workers = numba.config.NUMBA_DEFAULT_NUM_THREADS if workers == -1 else workers
     with tempfile.TemporaryDirectory() as tmp:

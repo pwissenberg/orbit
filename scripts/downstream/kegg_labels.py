@@ -17,21 +17,22 @@ from __future__ import annotations
 
 import argparse
 import sys
-import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import log, read_idmap  # noqa: E402
+from orbit.fetch import download_file  # noqa: E402
 from orbit.io import read_ids  # noqa: E402
 
 EXCLUDE = {"01100", "01110"}
 
 
 def fetch(url: str, dest: Path) -> Path:
+    """Download once, through a .part file, so an interrupted transfer is never mistaken
+    for a complete response."""
     if not dest.exists():
         log(f"downloading {url}")
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        urllib.request.urlretrieve(url, dest)
+        download_file(url, dest)
     return dest
 
 
@@ -100,9 +101,8 @@ def main(argv: list[str] | None = None) -> int:
             if a.idmap_dir is None:
                 raise SystemExit(f"error: {sp} needs --idmap-dir to map KEGG genes via UniProt")
             conv = read_conv(fetch(f"https://rest.kegg.jp/conv/uniprot/{code}", a.cache / f"kegg_{code}_to_uniprot.tsv"), code)
-            present = set(gene_ids)
-            idmap = {u: g for u, g in read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv",
-                                                 tuple(a.idmap_columns.split(","))).items() if g in present}
+            idmap = read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv", tuple(a.idmap_columns.split(",")),
+                               keep=gene_ids)
             to_gene = {k: idmap[u] for k, u in conv.items() if u in idmap}
         n = 0
         for kegg_gene, pathways in links.items():

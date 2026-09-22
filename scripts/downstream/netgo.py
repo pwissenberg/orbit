@@ -39,15 +39,18 @@ import tempfile
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
-from joblib import Parallel, delayed
-from sklearn.linear_model import LogisticRegression
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
+from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
+
+require_paper_extra()
+import pandas as pd  # noqa: E402
+from joblib import Parallel, delayed  # noqa: E402
+from sklearn.linear_model import LogisticRegression  # noqa: E402
 
 NAMESPACE = {"mf": "molecular_function", "bp": "biological_process", "cc": "cellular_component"}
 SEED = 42
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz  # NumPy 2 renamed trapz
 
 
 # --- inputs -------------------------------------------------------------------------------
@@ -127,7 +130,7 @@ def score(obo: Path, pred_dir: Path, gt_file: Path, aspect: str, th_step: float,
     if {"rc", "pr"} <= set(df.columns):
         d = df[["rc", "pr"]].dropna().sort_values("rc")
         if len(d) > 1:
-            out["auprc"] = float(np.trapezoid(d["pr"].to_numpy(), d["rc"].to_numpy()))
+            out["auprc"] = float(_trapezoid(d["pr"].to_numpy(), d["rc"].to_numpy()))
     return out
 
 

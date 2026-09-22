@@ -33,11 +33,13 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
+from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
 from deeploc import MultiLabelLR, pr_curve_with_band, read_labels  # noqa: E402
+
+require_paper_extra()
+import pandas as pd  # noqa: E402
 
 
 def read_aliases(path: Path) -> tuple[dict[str, str], dict[str, str]]:
@@ -120,7 +122,7 @@ def main(argv: list[str] | None = None) -> int:
             f"[{curves[name]['fmax_ci'][0]:.4f}, {curves[name]['fmax_ci'][1]:.4f}]")
 
     if a.baseline is not None:
-        base = pd.read_csv(a.baseline).set_index("Protein_ID")
+        base = pd.read_csv(a.baseline).drop_duplicates("Protein_ID").set_index("Protein_ID")
         common = [s for s in te["sid"] if s in base.index]
         if common:
             sub = te[te["sid"].isin(common)]

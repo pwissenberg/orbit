@@ -34,15 +34,17 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (accuracy_score, f1_score, jaccard_score, matthews_corrcoef,
-                             precision_recall_curve)
-from sklearn.multioutput import MultiOutputClassifier
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import (add_arm_arguments, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
+from _common import (add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
                      shared_proteins, write_json)
+
+require_paper_extra()
+import pandas as pd  # noqa: E402
+from sklearn.linear_model import LogisticRegression  # noqa: E402
+from sklearn.metrics import (accuracy_score, f1_score, jaccard_score, matthews_corrcoef,  # noqa: E402
+                             precision_recall_curve)
+from sklearn.multioutput import MultiOutputClassifier  # noqa: E402
 
 COMPARTMENTS = ["Cytoplasm", "Nucleus", "Cell membrane", "Plastid", "Extracellular",
                 "Mitochondrion", "Endoplasmic reticulum", "Golgi apparatus",

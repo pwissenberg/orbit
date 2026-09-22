@@ -14,6 +14,10 @@ from orbit.io import write_embeddings
 
 SCRIPTS = Path(__file__).resolve().parent.parent / "scripts" / "downstream"
 
+pytestmark = pytest.mark.skipif(
+    any(importlib.util.find_spec(m) is None for m in ("sklearn", "pandas", "joblib", "cafaeval")),
+    reason="the downstream scripts need `uv sync --extra paper`")
+
 
 def load_script(name: str):
     spec = importlib.util.spec_from_file_location(name, SCRIPTS / f"{name}.py")
@@ -160,6 +164,16 @@ def test_shared_proteins_is_the_sorted_intersection_over_arms(common):
     assert common.shared_proteins(arms, ["p3", "p9"]) == ["p3"]
 
 
+def test_read_idmap_keep_prefers_a_target_that_is_present(common, tmp_path):
+    """An accession listed first with an isoform absent from the embedding must still map onto
+    the isoform that is present."""
+    f = tmp_path / "ORYSA_to_uniprot.tsv"
+    f.write_text("teagcn_id\tquery_id\tuniprot_accession\nOs01g0100200.2\tx\tQ6ZL45\nOs01g0100200.1\tx\tQ6ZL45\n")
+    cols = ("uniprot_accession", "teagcn_id")
+    assert common.read_idmap(f, cols) == {"Q6ZL45": "Os01g0100200.2"}
+    assert common.read_idmap(f, cols, keep={"Os01g0100200.1"}) == {"Q6ZL45": "Os01g0100200.1"}
+
+
 def test_rekey_maps_arm_ids_through_a_mapping_and_drops_the_rest(common, embedding_dir, flat_h5):
     """ProtT5 files are keyed by UniProt accession; --rekey ARM maps them onto the embedding
     ids so the arm can intersect with the aligned embeddings."""
@@ -179,6 +193,8 @@ def test_rekey_of_an_undeclared_arm_is_an_error(common, embedding_dir):
     common.add_arm_arguments(p)
     with pytest.raises(SystemExit, match="unknown arm"):
         common.load_arms(p.parse_args(["--arm", f"orbit={embedding_dir}", "--rekey", "t5"]), rekey_map={})
+    with pytest.raises(SystemExit, match="id mapping"):
+        common.load_arms(p.parse_args(["--arm", f"orbit={embedding_dir}", "--rekey", "orbit"]))
 
 
 def test_read_idmap_uses_from_to_columns_by_default(common, tmp_path):
@@ -396,6 +412,21 @@ def test_hpa_maps_the_test_set_through_the_alias_table_and_scores_every_arm(tmp_
     assert 0 <= lo <= hi <= 1
     assert curves["deeploc2"]["n_test"] == 25 and "fmax_ci" in curves["deeploc2"]
     assert curves["orbit"]["n_train"] < 100  # training proteins from the DeepLoc table only
+
+
+def test_hpa_baseline_with_a_duplicated_protein_id_still_scores(tmp_path, embedding_dir, hpa_inputs):
+    import json
+    hpa = load_script("hpa")
+    baseline = hpa_inputs["baseline"]
+    lines = baseline.read_text().splitlines()
+    baseline.write_text("\n".join(lines + [lines[1]]) + "\n")  # first protein listed twice
+    out = tmp_path / "out"
+    hpa.main(["--train", str(hpa_inputs["train"]), "--train-idmap", str(hpa_inputs["train_idmap"]),
+              "--test", str(hpa_inputs["test"]), "--headers", str(hpa_inputs["headers"]),
+              "--aliases", str(hpa_inputs["aliases"]), "--baseline", str(baseline),
+              "--arm", f"orbit={embedding_dir}", "--out", str(out), "--n-boot", "2"])
+    curves = json.loads((out / "hpa_curves.json").read_text())
+    assert curves["deeploc2"]["n_test"] == 25
 
 
 def test_hpa_rekeys_uniprot_keyed_arms_through_idmap_and_aliases(tmp_path, embedding_dir, hpa_inputs):
@@ -617,6 +648,36 @@ def test_go_transfer_evaluates_eligible_terms_and_weights_species_by_test_size(t
     assert res["summary"]["orbit"]["MF"]["n_species"] == 2
 
 
+def test_go_transfer_reports_bad_arm_syntax_and_missing_arms_clearly(tmp_path, plant_inputs):
+    go_transfer = load_script("go_transfer")
+    with pytest.raises(SystemExit, match="--arm must be written"):
+        go_transfer.main(transfer_args(plant_inputs, tmp_path / "o", "--arm", "orbit"))
+    with pytest.raises(SystemExit, match="at least one --arm"):
+        go_transfer.main(transfer_args(plant_inputs, tmp_path / "o", "--species-dir", str(plant_inputs["emb"])))
+
+
+def test_go_transfer_rekeys_an_accession_keyed_arm_through_the_idmap_dir(tmp_path, plant_inputs):
+    """ProtT5 per-protein files are keyed by accession; --rekey maps them onto gene ids with
+    the per-species tables so they can be concatenated with the aligned embeddings."""
+    import json
+    go_transfer = load_script("go_transfer")
+    t5 = tmp_path / "t5.h5"
+    rng = np.random.default_rng(7)
+    with h5py.File(t5, "w") as f:
+        for sp, (_, acc_fmt, n) in PLANT.items():
+            for i in range(n):
+                f.create_dataset(acc_fmt.format(i), data=rng.normal(size=5))
+    out = tmp_path / "out"
+    rc = go_transfer.main(transfer_args(plant_inputs, out, "--arm", f"orbit={plant_inputs['emb']}",
+                                        "--arm", f"prott5={t5}", "--rekey", "prott5",
+                                        "--concat", "orbit_t5=orbit+prott5", "--normalize-concat", test=("ORYSA",)))
+    assert rc == 0
+    res = json.loads((out / "transfer.json").read_text())
+    by_arm = {r["arm"]: r for r in res["results"]}
+    assert by_arm["prott5"]["n_train"] == by_arm["orbit"]["n_train"]
+    assert by_arm["orbit_t5"]["n_test"] == by_arm["orbit"]["n_test"]
+
+
 def test_go_transfer_perfect_features_reach_fmax_one(tmp_path, plant_inputs):
     import json
     from orbit.io import read_embeddings
@@ -679,6 +740,20 @@ def test_kegg_labels_builds_the_table_from_cached_kegg_files(tmp_path, plant_inp
     assert rows == {("AT1G00001.1", "00010", "KEGG"), ("AT1G00002.1", "00020", "KEGG"),
                     ("LOC_Os01g00005.1", "00010", "KEGG")}
     assert out.read_text().splitlines()[0] == "protein\tterm\taspect"
+
+
+def test_kegg_labels_maps_an_accession_whose_first_isoform_is_absent(tmp_path, plant_inputs):
+    kegg_labels = load_script("kegg_labels")
+    idmap = plant_inputs["idmaps"] / "ORYSA_to_uniprot.tsv"
+    idmap.write_text(idmap.read_text() + "LOC_Os01g00005.9\tx\tQo9999\nLOC_Os01g00005.1\tx\tQo9999\n")
+    cache = tmp_path / "kegg_cache"
+    cache.mkdir()
+    (cache / "kegg_osa_links.tsv").write_text("path:osa00010\tosa:1\n")
+    (cache / "kegg_osa_to_uniprot.tsv").write_text("osa:1\tup:Qo9999\n")
+    out = tmp_path / "kegg_labels.tsv"
+    kegg_labels.main(["--species", "ORYSA=osa", "--embeddings", str(plant_inputs["emb"]),
+                      "--idmap-dir", str(plant_inputs["idmaps"]), "--cache", str(cache), "--out", str(out)])
+    assert out.read_text().splitlines()[1:] == ["LOC_Os01g00005.1\t00010\tKEGG"]
 
 
 def test_kegg_labels_prefers_the_first_isoform_for_arath(tmp_path):
