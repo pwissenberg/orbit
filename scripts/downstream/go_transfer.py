@@ -5,13 +5,16 @@ Reproduces Fig. 3C and Fig. S5 (GO transfer from A. thaliana to rice, maize, soy
 Medicago, Section 2.7) and Table S6 (KEGG pathway transfer, labels from ``kegg_labels.py``).
 The embedding arms are the aligned plant embeddings produced before with ``orbit align``
 (``results/plant/<SPECIES>.h5``; the five seed files equal the Zenodo release), ProtT5, the
-FedCoder-plant baseline and their concatenations (``_common.py``; plant concatenations use
-``--normalize-concat``). Species membership of a gene comes from the per-species files of
-``--species-dir`` (default: the first ``--arm`` directory).
+FedCoder-plant baseline and their concatenations (``_common.py``). Unlike the other plant
+benchmarks, this one joins the raw vectors and standardises the result, so do not pass
+``--normalize-concat`` to reproduce Fig. 3C. Species membership of a gene comes from the
+per-species files of ``--species-dir`` (default: the first ``--arm`` directory).
 
-Labels: a TSV with a header. For GO, the CAFA-style table with UniProt accessions and GO ids
-(``--label-columns accession,go_id``), the aspect of every term taken from ``--obo``
-(go-basic.obo), and the accessions mapped onto gene ids per species with
+Labels: a TSV with a header. For GO, a table of UniProt accessions and GO ids
+(``--label-columns accession,go_id``) holding the GOA annotations with experimental
+evidence codes; the aspect of every term is taken from ``--obo`` (go-basic.obo), the
+annotations are propagated to their ancestors along ``is_a`` and ``part_of`` (Section 2.7;
+``--no-propagate`` to skip), and the accessions are mapped onto gene ids per species with
 ``--idmap-dir/<SPECIES>_to_uniprot.tsv``. For KEGG, the ``protein``, ``term``, ``aspect``
 table written by ``kegg_labels.py``, already in gene-id space.
 
@@ -28,7 +31,7 @@ the per-term values, and the weighted summary.
         --label-columns accession,go_id --obo data/go-basic.obo --idmap-dir data/id_mapping \\
         --train ARATH --test ORYSA ZEAMA GLYMA MEDTR \\
         --arm orbit=results/plant --arm fedcoder=results/fedcoder_plant --arm prott5=data/prott5 \\
-        --concat orbit_t5=orbit+prott5 --concat fedcoder_t5=fedcoder+prott5 --normalize-concat \\
+        --concat orbit_t5=orbit+prott5 --concat fedcoder_t5=fedcoder+prott5 \\
         --out results/downstream/plant_go_transfer
 """
 from __future__ import annotations
@@ -40,7 +43,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, write_json  # noqa: E402
+from _common import (add_arm_arguments, derive_arms, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
+                     require_paper_extra, write_json)
 from orbit.io import read_ids  # noqa: E402
 
 require_paper_extra()
@@ -56,18 +60,57 @@ ASPECT_OF_NAMESPACE = {"molecular_function": "MF", "biological_process": "BP", "
 
 # --- inputs -------------------------------------------------------------------------------
 
-def read_obo_aspects(path: Path) -> dict[str, str]:
-    """``{GO id: MF|BP|CC}`` from an OBO file."""
-    out, current = {}, None
+def read_obo(path: Path) -> tuple[dict[str, str], dict[str, set[str]]]:
+    """``({GO id: MF|BP|CC}, {GO id: direct parents})`` from an OBO file; parents follow
+    ``is_a`` and ``relationship: part_of``, the edges CAFA-evaluator propagates along."""
+    aspects: dict[str, str] = {}
+    parents: dict[str, set[str]] = {}
+    current = None
     with open(path) as f:
         for line in f:
-            if line.startswith("id: GO:"):
-                current = line.strip().split(": ", 1)[1]
-            elif line.startswith("namespace:") and current:
-                ns = line.strip().split(": ", 1)[1]
-                if ns in ASPECT_OF_NAMESPACE:
-                    out[current] = ASPECT_OF_NAMESPACE[ns]
+            line = line.strip()
+            if line == "[Term]":
                 current = None
+            elif line.startswith("id: GO:"):
+                current = line.split(": ", 1)[1]
+                parents.setdefault(current, set())
+            elif current is None:
+                continue
+            elif line.startswith("namespace:"):
+                ns = line.split(": ", 1)[1]
+                if ns in ASPECT_OF_NAMESPACE:
+                    aspects[current] = ASPECT_OF_NAMESPACE[ns]
+            elif line.startswith("is_a:"):
+                parents[current].add(line.split(": ", 1)[1].split()[0])
+            elif line.startswith("relationship: part_of"):
+                parents[current].add(line.split()[2])
+            elif line.startswith("is_obsolete: true"):
+                aspects.pop(current, None)
+    return aspects, parents
+
+
+def ancestors(parents: dict[str, set[str]]) -> dict[str, set[str]]:
+    """Transitive closure of ``parents``, each term excluded from its own set."""
+    memo: dict[str, set[str]] = {}
+
+    def up(t: str) -> set[str]:
+        if t not in memo:
+            memo[t] = set()
+            for p in parents.get(t, ()):
+                memo[t] |= {p} | up(p)
+        return memo[t]
+
+    return {t: up(t) for t in parents}
+
+
+def propagate(labels: pd.DataFrame, parents: dict[str, set[str]], aspects: dict[str, str]) -> pd.DataFrame:
+    """Add, for every annotation, the ancestor terms of the same aspect."""
+    anc = ancestors(parents)
+    rows = {(p, t) for p, t in zip(labels["protein"], labels["term"])}
+    for p, t in list(rows):
+        rows.update((p, a) for a in anc.get(t, ()) if aspects.get(a) == aspects.get(t))
+    out = pd.DataFrame(sorted(rows), columns=["protein", "term"])
+    out["aspect"] = out["term"].map(aspects)
     return out
 
 
@@ -123,7 +166,8 @@ def transfer_terms(X_train: np.ndarray, train_ids: list[str], train_labels: dict
                    min_train_positives: int = 10, seed: int = SEED, n_jobs: int = -1) -> dict:
     """Term-centric transfer: every term with ``min_train_positives`` training positives and
     at least one test positive gets one classifier; returns the per-term Fmax and AUPRC and
-    their means. Features are standardised on the training species."""
+    their means. A term carried by every training gene (the aspect root after propagation)
+    has no negatives and is skipped. Features are standardised on the training species."""
     terms = sorted({t for p in train_ids for t in train_labels.get(p, ())})
     eligible = []
     for t in terms:
@@ -174,7 +218,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--labels", type=Path, required=True, metavar="TSV")
     p.add_argument("--label-columns", default="protein,term", metavar="ID,TERM",
                    help="columns of --labels holding the protein id and the term (default protein,term)")
-    p.add_argument("--obo", type=Path, metavar="OBO", help="assign GO aspects from this ontology")
+    p.add_argument("--obo", type=Path, metavar="OBO",
+                   help="assign GO aspects from this ontology and propagate annotations to ancestors")
+    p.add_argument("--no-propagate", action="store_true", help="do not propagate to ancestor terms")
     p.add_argument("--idmap-dir", type=Path, metavar="DIR",
                    help="directory of <SPECIES>_to_uniprot.tsv tables mapping label ids onto gene ids")
     p.add_argument("--idmap-columns", default="uniprot_accession,teagcn_id", metavar="SRC,DST")
@@ -192,15 +238,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     a = build_parser().parse_args(argv)
-    aspects = read_obo_aspects(a.obo) if a.obo else None
+    aspects, parents = read_obo(a.obo) if a.obo else (None, None)
     labels = read_labels(a.labels, tuple(a.label_columns.split(",")), aspects)
+    if aspects is not None and not a.no_propagate:
+        before = len(labels)
+        labels = propagate(labels, parents, aspects)
+        log(f"{before} annotations propagated to {len(labels)} along is_a and part_of")
     all_species = [a.train] + list(a.test)
     cols = tuple(a.idmap_columns.split(","))
     idmaps: dict[str, dict[str, str] | None] = {}
     for sp in all_species:
         idmaps[sp] = read_idmap(a.idmap_dir / f"{sp}_to_uniprot.tsv", cols) if a.idmap_dir else None
     rekey_map = {k: v for m in idmaps.values() if m for k, v in m.items()} if a.idmap_dir else None
-    arms = load_arms(a, set(all_species), rekey_map=rekey_map)
+    base = load_arms(a, set(all_species), rekey_map=rekey_map)
     species_dir = a.species_dir or Path(a.arm[0].split("=", 1)[1])
     if not species_dir.is_dir():
         raise SystemExit(f"error: {species_dir} is not a directory of <SPECIES>.h5 files (--species-dir)")
@@ -215,18 +265,22 @@ def main(argv: list[str] | None = None) -> int:
         n = len({p for d in per_species[sp].values() for p in d})
         log(f"{sp}: {n} labelled genes over {sorted(per_species[sp])}")
 
+    def labelled(sp, embs):
+        have = {p for d in per_species[sp].values() for p in d}
+        return [g for g in genes[sp] if g in have and g in embs]
+
+    in_all = {g for sp in all_species for g in genes[sp] if all(g in arm for arm in base.values())}
+    fit_ids = [g for sp in all_species for g in labelled(sp, in_all)]
+    arms = derive_arms(a, base, fit_ids)
     results = []
     for name, embs in arms.items():
-        def labelled(sp):
-            have = {p for d in per_species[sp].values() for p in d}
-            return [g for g in genes[sp] if g in have and g in embs]
-        train_ids = labelled(a.train)
+        train_ids = labelled(a.train, embs)
         if not train_ids:
             log(f"  {name}: no labelled training gene present, skipped")
             continue
         X_train = feature_matrix(embs, train_ids)
         for sp in a.test:
-            test_ids = labelled(sp)
+            test_ids = labelled(sp, embs)
             if not test_ids:
                 log(f"  {name}/{sp}: no labelled test gene present, skipped")
                 continue

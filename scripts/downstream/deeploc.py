@@ -12,6 +12,9 @@ Labels come either as the DeepLoc 2.0 table (``Swissprot_Train_Validation_datase
 from SPACE's ``benchmarks.zip``: ``ACC``, ``Partition`` and one 0/1 column per compartment),
 mapped onto the embedding ids with ``--idmap`` (``cv_idmapping.tsv``), or as a long table
 with a protein column and a ``compartment`` column (the UniProt annotations of Fig. S4).
+Several ``--labels`` files are pooled (the plant run of Fig. 3B pools one pre-mapped table
+per species, with a ``teagcn_id`` column and no ``--idmap``, and concatenates with
+``--normalize-concat``).
 
 One multi-label logistic regression per arm is trained on all partitions but one and tested on
 the held-out partition; out-of-fold probabilities give the precision-recall curve with a
@@ -36,8 +39,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import (add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
-                     shared_proteins, write_json)
+from _common import (add_arm_arguments, derive_arms, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
+                     require_paper_extra, shared_proteins, write_json)
 
 require_paper_extra()
 import pandas as pd  # noqa: E402
@@ -227,8 +230,8 @@ def write_folds(path: Path, folds: list[dict]) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--labels", type=Path, required=True, metavar="FILE",
-                   help="DeepLoc 2.0 table (CSV) or long protein/compartment table (TSV)")
+    p.add_argument("--labels", type=Path, nargs="+", required=True, metavar="FILE",
+                   help="DeepLoc 2.0 table(s) (CSV) or long protein/compartment table(s) (TSV); pooled")
     p.add_argument("--idmap", type=Path, metavar="TSV", help="maps --id-column onto the embedding ids")
     p.add_argument("--idmap-columns", default="From,To", metavar="SRC,DST",
                    help="columns of --idmap (default From,To)")
@@ -247,14 +250,15 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     a = build_parser().parse_args(argv)
     idmap = read_idmap(a.idmap, tuple(a.idmap_columns.split(","))) if a.idmap else None
-    labels = read_labels(a.labels, idmap, id_column=a.id_column, partition_column=a.partition_column,
-                         partition_by=a.partition_by)
+    labels = pd.concat([read_labels(f, idmap, id_column=a.id_column, partition_column=a.partition_column,
+                                    partition_by=a.partition_by) for f in a.labels]).drop_duplicates("protein")
     log(f"{len(labels)} labelled proteins, {labels['partition'].nunique()} partitions")
     species = {p.split(".")[0] for p in labels["protein"]}
     arms = load_arms(a, species, rekey_map=idmap)
     keep = shared_proteins(arms, labels["protein"])
     if len(keep) < 2:
         raise SystemExit("error: fewer than two labelled proteins are present in every arm")
+    arms = derive_arms(a, arms, keep)
     sub = labels.set_index("protein").loc[keep].reset_index()
     Y = sub[COMPARTMENTS].to_numpy(dtype=int)
     parts = sub["partition"].to_numpy()

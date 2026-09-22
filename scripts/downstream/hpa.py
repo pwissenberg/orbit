@@ -35,7 +35,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
+from _common import (add_arm_arguments, derive_arms, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
+                     require_paper_extra, shared_proteins, write_json)
 from deeploc import MultiLabelLR, pr_curve_with_band, read_labels  # noqa: E402
 
 require_paper_extra()
@@ -106,6 +107,7 @@ def main(argv: list[str] | None = None) -> int:
     keep_test = shared_proteins(arms, test["protein"])
     if len(keep_train) < 2 or not keep_test:
         raise SystemExit("error: too few training or test proteins are present in every arm")
+    arms = derive_arms(a, arms, keep_train + keep_test)
     tr = train.set_index("protein").loc[keep_train]
     te = test.set_index("protein").loc[keep_test]
     Y_tr = tr[compartments].to_numpy(dtype=int)

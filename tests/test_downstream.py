@@ -130,11 +130,30 @@ def test_arm_arguments_build_every_declared_arm(common, embedding_dir, flat_h5):
     common.add_arm_arguments(p)
     a = p.parse_args(["--arm", f"orbit={embedding_dir}", "--arm", f"prott5={flat_h5}",
                       "--pca", "orbit_pca=orbit:4", "--concat", "orbit_t5=orbit+prott5"])
-    arms = common.load_arms(a)
+    base = common.load_arms(a)
+    assert list(base) == ["orbit", "prott5"]
+    arms = common.derive_arms(a, base, fit_ids=common.shared_proteins(base))
     assert list(arms) == ["orbit", "prott5", "orbit_pca", "orbit_t5"]
     assert arms["orbit_pca"]["9606.p0001"].shape == (4,)
     assert arms["orbit_t5"]["9606.p0001"].shape == (14,)
     assert len(arms["orbit_t5"]) == 50
+
+
+def test_pca_control_is_fitted_on_the_benchmark_proteins_only(common, embedding_dir):
+    """Section 2.8: the PCA reduction of SPACE is a capacity control for the benchmark, so it
+    is fitted on the proteins the benchmark scores, not on every protein of the species."""
+    import argparse
+    p = argparse.ArgumentParser()
+    common.add_arm_arguments(p)
+    a = p.parse_args(["--arm", f"orbit={embedding_dir}", "--pca", "pca=orbit:3"])
+    base = common.load_arms(a)
+    fit = sorted(k for k in base["orbit"] if k.endswith(("1", "3", "5")))
+    arms = common.derive_arms(a, base, fit_ids=fit)
+    assert set(arms["pca"]) == set(fit)
+    expected = common.pca_reduce({k: base["orbit"][k] for k in fit}, 3)
+    np.testing.assert_allclose(arms["pca"]["9606.p0001"], expected["9606.p0001"], atol=1e-5)
+    everything = common.pca_reduce(base["orbit"], 3)
+    assert not np.allclose(arms["pca"]["9606.p0001"], everything["9606.p0001"], atol=1e-3)
 
 
 def test_arm_arguments_normalize_concat_gives_unit_blocks(common, embedding_dir, flat_h5):
@@ -143,7 +162,8 @@ def test_arm_arguments_normalize_concat_gives_unit_blocks(common, embedding_dir,
     common.add_arm_arguments(p)
     a = p.parse_args(["--arm", f"orbit={embedding_dir}", "--arm", f"t5={flat_h5}",
                       "--concat", "both=orbit+t5", "--normalize-concat"])
-    v = common.load_arms(a)["both"]["9606.p0002"]
+    base = common.load_arms(a)
+    v = common.derive_arms(a, base, fit_ids=common.shared_proteins(base))["both"]["9606.p0002"]
     assert np.isclose(np.linalg.norm(v[:8]), 1.0, atol=1e-5)
     assert np.isclose(np.linalg.norm(v[8:]), 1.0, atol=1e-5)
 
@@ -153,7 +173,8 @@ def test_arm_arguments_reject_unknown_reference_and_bad_syntax(common, embedding
     p = argparse.ArgumentParser()
     common.add_arm_arguments(p)
     with pytest.raises(SystemExit):
-        common.load_arms(p.parse_args(["--arm", f"orbit={embedding_dir}", "--concat", "x=orbit+nope"]))
+        a = p.parse_args(["--arm", f"orbit={embedding_dir}", "--concat", "x=orbit+nope"])
+        common.derive_arms(a, common.load_arms(a), fit_ids=[])
     with pytest.raises(SystemExit):
         common.load_arms(p.parse_args(["--arm", "orbit"]))
 
@@ -323,6 +344,27 @@ def test_deeploc_perfectly_separable_features_reach_fmax_one(tmp_path, deeploc_i
                   "--out", str(out), "--n-boot", "3"])
     curves = json.loads((out / "pr_curves.json").read_text())
     assert curves["cheat"]["fmax"] == pytest.approx(1.0)
+
+
+def test_deeploc_pools_several_label_files(tmp_path, embedding_dir, deeploc_inputs):
+    """The plant benchmark pools one pre-mapped table per species (Section 2.7)."""
+    import json
+    import pandas as pd
+    deeploc = load_script("deeploc")
+    labels, idmap = deeploc_inputs
+    df = pd.read_csv(labels)
+    acc_to_pid = dict(l.split("\t") for l in idmap.read_text().splitlines()[1:])
+    df["teagcn_id"] = df["ACC"].map(acc_to_pid)
+    parts = []
+    for sp in ("9606", "10090"):
+        f = tmp_path / f"{sp}_deeploc.tsv"
+        df[df["teagcn_id"].str.startswith(sp)].drop(columns=["ACC", "Sequence"]).to_csv(f, sep="\t", index=False)
+        parts.append(str(f))
+    out = tmp_path / "out"
+    rc = deeploc.main(["--labels", *parts, "--arm", f"orbit={embedding_dir}", "--out", str(out), "--n-boot", "2"])
+    assert rc == 0
+    summary = json.loads((out / "summary.json").read_text())
+    assert summary["orbit"]["n_proteins"] == len(labelled_accessions(labels))
 
 
 def test_deeploc_long_labels_partition_by_species(tmp_path, embedding_dir):
@@ -670,12 +712,35 @@ def test_go_transfer_rekeys_an_accession_keyed_arm_through_the_idmap_dir(tmp_pat
     out = tmp_path / "out"
     rc = go_transfer.main(transfer_args(plant_inputs, out, "--arm", f"orbit={plant_inputs['emb']}",
                                         "--arm", f"prott5={t5}", "--rekey", "prott5",
-                                        "--concat", "orbit_t5=orbit+prott5", "--normalize-concat", test=("ORYSA",)))
+                                        "--concat", "orbit_t5=orbit+prott5", test=("ORYSA",)))
     assert rc == 0
     res = json.loads((out / "transfer.json").read_text())
     by_arm = {r["arm"]: r for r in res["results"]}
     assert by_arm["prott5"]["n_train"] == by_arm["orbit"]["n_train"]
     assert by_arm["orbit_t5"]["n_test"] == by_arm["orbit"]["n_test"]
+
+
+def test_go_transfer_propagates_annotations_to_ancestor_terms(tmp_path, plant_inputs):
+    """Section 2.7: annotations were propagated to ancestor terms. A child term annotated in
+    the training species makes its parent evaluable once propagated; --no-propagate turns
+    this off."""
+    import json
+    go_transfer = load_script("go_transfer")
+    obo = plant_inputs["obo"]
+    obo.write_text(obo.read_text() + "\n[Term]\nid: GO:0000007\nname: child\nnamespace: molecular_function\n"
+                   "is_a: GO:0000001 ! parent\n\n[Term]\nid: GO:0000008\nname: part\nnamespace: molecular_function\n"
+                   "relationship: part_of GO:0000002 ! whole\n")
+    labels = plant_inputs["labels"]
+    text = labels.read_text().replace("\tGO:0000001\n", "\tGO:0000007\n").replace("\tGO:0000002\n", "\tGO:0000008\n")
+    labels.write_text(text)
+    out = tmp_path / "out"
+    go_transfer.main(transfer_args(plant_inputs, out, "--arm", f"orbit={plant_inputs['emb']}", test=("ORYSA",)))
+    terms = set(json.loads((out / "transfer.json").read_text())["results"][0]["terms"])
+    assert {"GO:0000001", "GO:0000002", "GO:0000007", "GO:0000008"} <= terms
+    assert MF_ROOT not in terms  # every annotated gene carries the root: no negatives to train on
+    go_transfer.main(transfer_args(plant_inputs, out, "--arm", f"orbit={plant_inputs['emb']}", "--no-propagate", test=("ORYSA",)))
+    terms = set(json.loads((out / "transfer.json").read_text())["results"][0]["terms"])
+    assert "GO:0000001" not in terms and MF_ROOT not in terms and "GO:0000007" in terms
 
 
 def test_go_transfer_perfect_features_reach_fmax_one(tmp_path, plant_inputs):

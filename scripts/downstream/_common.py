@@ -9,7 +9,8 @@ concatenations and PCA controls. Every script declares them on the command line:
     --arm NAME=PATH        a directory of per-species ``<species>.h5`` files, one ``.h5`` in
                            that layout, or an HDF5 with one dataset per protein (UniProt's
                            ``per-protein.h5``, SPACE's ``netgo_t5.h5``)
-    --pca NAME=ARM:K       ARM projected onto its first K principal components
+    --pca NAME=ARM:K       ARM projected onto its first K principal components, fitted on the
+                           proteins the benchmark scores (the capacity control of Section 2.8)
     --concat NAME=A+B      A and B side by side over the proteins they share
     --normalize-concat     L2-normalise each block before concatenating (the plant protocol,
                            Section 2.7); without it the raw vectors are joined (STRING, 2.8)
@@ -166,16 +167,33 @@ def rekey(embs: Mapping[str, np.ndarray], mapping: Mapping[str, str]) -> Arm:
 
 def load_arms(args: argparse.Namespace, species: Collection[str] | None = None,
               rekey_map: Mapping[str, str] | None = None) -> dict[str, Arm]:
-    """Build every declared arm, in declaration order: --arm (rekeyed through ``rekey_map``
-    when listed in --rekey), then --pca, then --concat."""
+    """Load every ``--arm`` in declaration order (rekeyed through ``rekey_map`` when listed
+    in ``--rekey``) and validate the names that ``--pca`` and ``--concat`` refer to. Call
+    :func:`derive_arms` once the benchmark proteins are known."""
     arms: dict[str, Arm] = {}
-    declared = {_split(spec, "=", "--arm")[0] for spec in args.arm}
+    declared = [_split(spec, "=", "--arm")[0] for spec in args.arm]
     for name in args.rekey:
         if name not in declared:
             raise SystemExit(f"error: --rekey {name}: unknown arm")
     if args.rekey and rekey_map is None:
         raise SystemExit("error: --rekey needs an id mapping from the label ids to the embedding ids; "
                          "this script was given none")
+    if not declared:
+        raise SystemExit("error: declare at least one --arm NAME=PATH")
+    known = set(declared)
+    for spec in args.pca:
+        name, rest = _split(spec, "=", "--pca")
+        src, k = _split(rest, ":", "--pca")
+        if src not in known:
+            raise SystemExit(f"error: --pca {name}: unknown arm {src!r}")
+        int(k)
+        known.add(name)
+    for spec in args.concat:
+        name, rest = _split(spec, "=", "--concat")
+        for x in _split(rest, "+", "--concat"):
+            if x not in known:
+                raise SystemExit(f"error: --concat {name}: unknown arm {x!r}")
+        known.add(name)
     for spec in args.arm:
         name, path = _split(spec, "=", "--arm")
         if not Path(path).exists():
@@ -183,22 +201,26 @@ def load_arms(args: argparse.Namespace, species: Collection[str] | None = None,
         arms[name] = load_arm(path, None if name in args.rekey else species)
         if name in args.rekey:
             arms[name] = rekey(arms[name], rekey_map)
+    return arms
+
+
+def derive_arms(args: argparse.Namespace, arms: Mapping[str, Arm], fit_ids: Iterable[str]) -> dict[str, Arm]:
+    """The loaded arms plus the ``--pca`` controls, fitted on and restricted to ``fit_ids``
+    (the proteins the benchmark scores), and the ``--concat`` arms, in declaration order."""
+    out: dict[str, Arm] = dict(arms)
+    fit = list(fit_ids)
     for spec in args.pca:
         name, rest = _split(spec, "=", "--pca")
         src, k = _split(rest, ":", "--pca")
-        if src not in arms:
-            raise SystemExit(f"error: --pca {name}: unknown arm {src!r}")
-        arms[name] = pca_reduce(arms[src], int(k))
+        subset = {i: out[src][i] for i in fit if i in out[src]}
+        if len(subset) < int(k):
+            raise SystemExit(f"error: --pca {name}: only {len(subset)} proteins to fit {k} components on")
+        out[name] = pca_reduce(subset, int(k))
     for spec in args.concat:
         name, rest = _split(spec, "=", "--concat")
         a, b = _split(rest, "+", "--concat")
-        for x in (a, b):
-            if x not in arms:
-                raise SystemExit(f"error: --concat {name}: unknown arm {x!r}")
-        arms[name] = concat(arms[a], arms[b], normalize=args.normalize_concat)
-    if not arms:
-        raise SystemExit("error: declare at least one --arm NAME=PATH")
-    return arms
+        out[name] = concat(out[a], out[b], normalize=args.normalize_concat)
+    return out
 
 
 def read_idmap(path: str | Path, columns: tuple[str, str] | None = None,

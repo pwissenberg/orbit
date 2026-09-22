@@ -12,7 +12,8 @@ Inputs from SPACE's ``benchmarks.zip`` (``benchmarks/netgo/``): ``train.txt`` an
 ``test_idmapping_euk.tsv`` (accession -> STRING id), ``test_<aspect>_ground_truth.txt``,
 ``go_2020_10_09.obo`` and ``netgo_t5.h5``. The plant run keeps only the plant taxa
 (``--taxa 3702 39947 4530 3847 3880 3694 4577``), maps accessions onto TEA-GCN ids with the
-``<SPECIES>_to_uniprot.tsv`` tables and scores against ``gene_ontology_edit.obo.2017-11-01``.
+``<SPECIES>_to_uniprot.tsv`` tables (``--idmap-columns uniprot_accession,teagcn_id``), scores
+against ``gene_ontology_edit.obo.2017-11-01`` and concatenates with ``--normalize-concat``.
 
 Per aspect, one logistic regression per GO term with at least ``--min-positives`` annotated
 training proteins is fitted on the proteins annotated in that aspect; test predictions above
@@ -41,7 +42,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import add_arm_arguments, require_paper_extra, feature_matrix, load_arms, log, read_idmap, shared_proteins, write_json  # noqa: E402
+from _common import (add_arm_arguments, derive_arms, feature_matrix, load_arms, log, read_idmap,  # noqa: E402
+                     require_paper_extra, shared_proteins, write_json)
 
 require_paper_extra()
 import pandas as pd  # noqa: E402
@@ -221,6 +223,7 @@ def main(argv: list[str] | None = None) -> int:
     keep_test = shared_proteins(arms, test["protein"])
     if len(keep_train) < a.min_positives or not keep_test:
         raise SystemExit("error: too few training or test proteins are present in every arm")
+    arms = derive_arms(a, arms, keep_train + keep_test)
     train = train[train["protein"].isin(keep_train)]
     test = test[test["protein"].isin(keep_test)]
     test_uniprot = test.drop_duplicates("protein").set_index("protein")["uniprot"].loc[keep_test].tolist()
