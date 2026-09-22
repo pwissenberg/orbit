@@ -29,6 +29,13 @@ embed = [
     "gensim>=4.3.0",
     "numba>=0.59.0",
 ]
+# scripts/downstream/: the downstream benchmarks of the paper (Sections 2.7 and 2.8).
+paper = [
+    "scikit-learn>=1.4.0",
+    "pandas>=2.0.0",
+    "joblib>=1.3.0",
+    "cafaeval>=1.3.0",
+]
 
 [project.scripts]
 orbit = "orbit.cli:main"
